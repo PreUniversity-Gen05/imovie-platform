@@ -1,0 +1,5 @@
+# Node modules folder (DO NOT push)
+node_modules/
+
+# VS Code settings
+.vscode/
