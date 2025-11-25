@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore Page</title>
+    <style>
+      .image {
+        width: 100vw;
+        object-fit: cover;
+        height: 530px;
+        opacity: 0.3;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../src/input.css" />
+  </head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <body class="dark:bg-gray-900">
+    <header
+      class="w-full px-6 py-4 flex items-center justify-between relative z-50 shrink-0 dark:bg-gray-900"
+    >
+      <div class="flex items-center gap-1">
+        <a href="#" class="text-3xl font-bold tracking-tight">
+          <div>
+            <h3 class="dark:text-white text-[40px] font-type-logo">
+              <span class="text-white">Cam</span
+              ><span class="text-[#432DD7]">Flix</span>
+            </h3>
+          </div>
+        </a>
+      </div>
+
+      <div class="hidden md:flex flex-1 max-w-md mx-8">
+        <div class="relative w-full">
+          <div
+            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+          >
+            <svg
+              class="h-5 w-5 text-gray-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </div>
+          <input
+            type="text"
+            class="block w-full pl-10 pr-3 py-2 border border-gray-600 rounded-full leading-5 bg-transparent text-gray-300 placeholder-gray-400 focus:outline-none focus:border-[var(--color-indigo-500)] focus:ring-1 focus:ring-[var(--color-indigo-500)] sm:text-sm transition duration-150 ease-in-out"
+            placeholder="Search..."
+          />
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6">
+        <a
+          href="#"
+          class="font-medium hover:text-[var(--color-indigo-500)] transition-colors"
+          >Home</a
+        >
+        <a
+          href="#"
+          class="font-medium hover:text-[var(--color-indigo-500)] transition-colors hidden sm:block"
+          >About us</a
+        >
+        <a
+          href="#"
+          class="flex items-center gap-1 font-medium hover:text-[var(--color-indigo-500)] transition-colors"
+        >
+          Let's Explore
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </a>
+        <button
+          class="p-2 rounded-full bg-white text-black hover:bg-gray-200 transition"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+            />
+          </svg>
+        </button>
+      </nav>
+
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden text-white p-2 focus:outline-none"
+      >
+        <svg
+          class="w-8 h-8"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          ></path>
+        </svg>
+      </button>
+    </header>
+
+    <h1 class="text-2xl font-bold ml-7 mt-7 dark:text-white">
+      Explore movies here
+    </h1>
+
+    <div
+      class="dark:bg-gray-900 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-5"
+    >
+      <!-- Movie Card -->
+      <div class="card dark:text-white">
+        <div>
+          <a href="#">
+            <img
+              class="w-[291px] h-[376px] object-cover mx-auto rounded-3xl transform transition-transform duration-300 hover:scale-90 ease-in-out"
+              src="../asset/photo_2025-11-21_17-13-50.jpg"
+              alt=""
+          /></a>
+        </div>
+
+        <div class="mt-2 mb-2 flex justify-around items-start">
+          <!-- LEFT SIDE (Title + Genre) -->
+          <div>
+            <span class="block font-semibold text-[28px]">John Carter</span>
+            <p class="text-gray-600 dark:text-gray-300 text-[18px]">
+              Action / Romance
+            </p>
+          </div>
+
+          <!-- RIGHT SIDE (Rating) -->
+          <span
+            class="text-[20px] mt-1 flex items-center gap-1.5 text-amber-300"
+          >
+            <i class="fa-solid fa-star"></i>
+            <span class="text-white">4.2</span>
+          </span>
+        </div>
+      </div>
+      <div class="card dark:text-white">
+        <div>
+          <a href="#">
+            <img
+              class="w-[291px] h-[376px] object-cover mx-auto rounded-3xl transform transition-transform duration-300 hover:scale-90 ease-in-out"
+              src="../asset/photo_2025-11-21_17-13-50.jpg"
+              alt=""
+          /></a>
+        </div>
+
+        <div class="mt-2 mb-2 flex justify-around items-start">
+          <!-- LEFT SIDE (Title + Genre) -->
+          <div>
+            <span class="block font-semibold text-[28px]">John Carter</span>
+            <p class="text-gray-600 dark:text-gray-300 text-[18px]">
+              Action / Romance
+            </p>
+          </div>
+
+          <!-- RIGHT SIDE (Rating) -->
+          <span
+            class="text-[20px] mt-1 flex items-center gap-1.5 text-amber-300"
+          >
+            <i class="fa-solid fa-star"></i>
+            <span class="text-white">4.2</span>
+          </span>
+        </div>
+      </div>
+      <div class="card dark:text-white">
+        <div>
+          <a href="#">
+            <img
+              class="w-[291px] h-[376px] object-cover mx-auto rounded-3xl transform transition-transform duration-300 hover:scale-90 ease-in-out"
+              src="../asset/photo_2025-11-21_17-13-50.jpg"
+              alt=""
+          /></a>
+        </div>
+
+        <div class="mt-2 mb-2 flex justify-around items-start">
+          <!-- LEFT SIDE (Title + Genre) -->
+          <div>
+            <span class="block font-semibold text-[28px]">John Carter</span>
+            <p class="text-gray-600 dark:text-gray-300 text-[18px]">
+              Action / Romance
+            </p>
+          </div>
+
+          <!-- RIGHT SIDE (Rating) -->
+          <span
+            class="text-[20px] mt-1 flex items-center gap-1.5 text-amber-300"
+          >
+            <i class="fa-solid fa-star"></i>
+            <span class="text-white">4.2</span>
+          </span>
+        </div>
+      </div>
+      <div class="card dark:text-white">
+        <div>
+          <a href="#">
+            <img
+              class="w-[291px] h-[376px] object-cover mx-auto rounded-3xl transform transition-transform duration-300 hover:scale-90 ease-in-out"
+              src="../asset/photo_2025-11-21_17-13-50.jpg"
+              alt=""
+          /></a>
+        </div>
+
+        <div class="mt-2 mb-2 flex justify-around items-start">
+          <!-- LEFT SIDE (Title + Genre) -->
+          <div>
+            <span class="block font-semibold text-[28px]">John Carter</span>
+            <p class="text-gray-600 dark:text-gray-300 text-[18px]">
+              Action / Romance
+            </p>
+          </div>
+
+          <!-- RIGHT SIDE (Rating) -->
+          <span
+            class="text-[20px] mt-1 flex items-center gap-1.5 text-amber-300"
+          >
+            <i class="fa-solid fa-star"></i>
+            <span class="text-white">4.2</span>
+          </span>
+        </div>
+      </div>
+      <div class="card dark:text-white">
+        <div>
+          <a href="#">
+            <img
+              class="w-[291px] h-[376px] object-cover mx-auto rounded-3xl transform transition-transform duration-300 hover:scale-90 ease-in-out"
+              src="../asset/photo_2025-11-21_17-13-50.jpg"
+              alt=""
+          /></a>
+        </div>
+
+        <div class="mt-2 mb-2 flex justify-around items-start">
+          <!-- LEFT SIDE (Title + Genre) -->
+          <div>
+            <span class="block font-semibold text-[28px]">John Carter</span>
+            <p class="text-gray-600 dark:text-gray-300 text-[18px]">
+              Action / Romance
+            </p>
+          </div>
+
+          <!-- RIGHT SIDE (Rating) -->
+          <span
+            class="text-[20px] mt-1 flex items-center gap-1.5 text-amber-300"
+          >
+            <i class="fa-solid fa-star"></i>
+            <span class="text-white">4.2</span>
+          </span>
+        </div>
+      </div>
+      <div class="card dark:text-white">
+        <div>
+          <a href="#">
+            <img
+              class="w-[291px] h-[376px] object-cover mx-auto rounded-3xl transform transition-transform duration-300 hover:scale-90 ease-in-out"
+              src="../asset/photo_2025-11-21_17-13-50.jpg"
+              alt=""
+          /></a>
+        </div>
+
+        <div class="mt-2 mb-2 flex justify-around items-start">
+          <!-- LEFT SIDE (Title + Genre) -->
+          <div>
+            <span class="block font-semibold text-[28px]">John Carter</span>
+            <p class="text-gray-600 dark:text-gray-300 text-[18px]">
+              Action / Romance
+            </p>
+          </div>
+
+          <!-- RIGHT SIDE (Rating) -->
+          <span
+            class="text-[20px] mt-1 flex items-center gap-1.5 text-amber-300"
+          >
+            <i class="fa-solid fa-star"></i>
+            <span class="text-white">4.2</span>
+          </span>
+        </div>
+      </div>
+      <div class="card dark:text-white">
+        <div>
+          <a href="#">
+            <img
+              class="w-[291px] h-[376px] object-cover mx-auto rounded-3xl transform transition-transform duration-300 hover:scale-90 ease-in-out"
+              src="../asset/photo_2025-11-21_17-13-50.jpg"
+              alt=""
+          /></a>
+        </div>
+
+        <div class="mt-2 mb-2 flex justify-around items-start">
+          <!-- LEFT SIDE (Title + Genre) -->
+          <div>
+            <span class="block font-semibold text-[28px]">John Carter</span>
+            <p class="text-gray-600 dark:text-gray-300 text-[18px]">
+              Action / Romance
+            </p>
+          </div>
+
+          <!-- RIGHT SIDE (Rating) -->
+          <span
+            class="text-[20px] mt-1 flex items-center gap-1.5 text-amber-300"
+          >
+            <i class="fa-solid fa-star"></i>
+            <span class="text-white">4.2</span>
+          </span>
+        </div>
+      </div>
+      <div class="card dark:text-white">
+        <div>
+          <a href="#">
+            <img
+              class="w-[291px] h-[376px] object-cover mx-auto rounded-3xl transform transition-transform duration-300 hover:scale-90 ease-in-out"
+              src="../asset/photo_2025-11-21_17-13-50.jpg"
+              alt=""
+          /></a>
+        </div>
+
+        <div class="mt-2 mb-2 flex justify-around items-start">
+          <!-- LEFT SIDE (Title + Genre) -->
+          <div>
+            <span class="block font-semibold text-[28px]">John Carter</span>
+            <p class="text-gray-600 dark:text-gray-300 text-[18px]">
+              Action / Romance
+            </p>
+          </div>
+
+          <!-- RIGHT SIDE (Rating) -->
+          <span
+            class="text-[20px] mt-1 flex items-center gap-1.5 text-amber-300"
+          >
+            <i class="fa-solid fa-star"></i>
+            <span class="text-white">4.2</span>
+          </span>
+        </div>
+      </div>
+      <div class="card dark:text-white">
+        <div>
+          <a href="#">
+            <img
+              class="w-[291px] h-[376px] object-cover mx-auto rounded-3xl transform transition-transform duration-300 hover:scale-90 ease-in-out"
+              src="../asset/photo_2025-11-21_17-13-50.jpg"
+              alt=""
+          /></a>
+        </div>
+
+        <div class="mt-2 mb-2 flex justify-around items-start">
+          <!-- LEFT SIDE (Title + Genre) -->
+          <div>
+            <span class="block font-semibold text-[28px]">John Carter</span>
+            <p class="text-gray-600 dark:text-gray-300 text-[18px]">
+              Action / Romance
+            </p>
+          </div>
+
+          <!-- RIGHT SIDE (Rating) -->
+          <span
+            class="text-[20px] mt-1 flex items-center gap-1.5 text-amber-300"
+          >
+            <i class="fa-solid fa-star"></i>
+            <span class="text-white">4.2</span>
+          </span>
+        </div>
+      </div>
+      <div class="card dark:text-white">
+        <div>
+          <a href="#">
+            <img
+              class="w-[291px] h-[376px] object-cover mx-auto rounded-3xl transform transition-transform duration-300 hover:scale-90 ease-in-out"
+              src="../asset/photo_2025-11-21_17-13-50.jpg"
+              alt=""
+          /></a>
+        </div>
+
+        <div class="mt-2 mb-2 flex justify-around items-start">
+          <!-- LEFT SIDE (Title + Genre) -->
+          <div>
+            <span class="block font-semibold text-[28px]">John Carter</span>
+            <p class="text-gray-600 dark:text-gray-300 text-[18px]">
+              Action / Romance
+            </p>
+          </div>
+
+          <!-- RIGHT SIDE (Rating) -->
+          <span
+            class="text-[20px] mt-1 flex items-center gap-1.5 text-amber-300"
+          >
+            <i class="fa-solid fa-star"></i>
+            <span class="text-white">4.2</span>
+          </span>
+        </div>
+      </div>
+      <div class="card dark:text-white">
+        <div>
+          <a href="#">
+            <img
+              class="w-[291px] h-[376px] object-cover mx-auto rounded-3xl transform transition-transform duration-300 hover:scale-90 ease-in-out"
+              src="../asset/photo_2025-11-21_17-13-50.jpg"
+              alt=""
+          /></a>
+        </div>
+
+        <div class="mt-2 mb-2 flex justify-around items-start">
+          <!-- LEFT SIDE (Title + Genre) -->
+          <div>
+            <span class="block font-semibold text-[28px]">John Carter</span>
+            <p class="text-gray-600 dark:text-gray-300 text-[18px]">
+              Action / Romance
+            </p>
+          </div>
+
+          <!-- RIGHT SIDE (Rating) -->
+          <span
+            class="text-[20px] mt-1 flex items-center gap-1.5 text-amber-300"
+          >
+            <i class="fa-solid fa-star"></i>
+            <span class="text-white">4.2</span>
+          </span>
+        </div>
+      </div>
+      <div class="card dark:text-white">
+        <div>
+          <a href="#">
+            <img
+              class="w-[291px] h-[376px] object-cover mx-auto rounded-3xl transform transition-transform duration-300 hover:scale-90 ease-in-out"
+              src="../asset/photo_2025-11-21_17-13-50.jpg"
+              alt=""
+          /></a>
+        </div>
+
+        <div class="mt-2 mb-2 flex justify-around items-start">
+          <!-- LEFT SIDE (Title + Genre) -->
+          <div>
+            <span class="block font-semibold text-[28px]">John Carter</span>
+            <p class="text-gray-600 dark:text-gray-300 text-[18px]">
+              Action / Romance
+            </p>
+          </div>
+
+          <!-- RIGHT SIDE (Rating) -->
+          <span
+            class="text-[20px] mt-1 flex items-center gap-1.5 text-amber-300"
+          >
+            <i class="fa-solid fa-star"></i>
+            <span class="text-white">4.2</span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center mt-6">
+      <button
+        class="flex items-center justify-center rounded-2xl dark:bg-blue-700 hover:bg-blue-800 dark:text-white font-bold w-[100px] h-[50px] text-center"
+      >
+        Load More
+      </button>
+    </div>
+
+    <footer
+      class="dark:bg-gray-900 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-20 mb-10 place-items-center"
+    >
+      <div class="space-y-7">
+        <div>
+          <h3 class="dark:text-white text-[40px] font-type-logo">
+            <span class="text-white">Cam</span
+            ><span class="text-[#432DD7]">Flix</span>
+          </h3>
+        </div>
+
+        <div>
+          <a
+            href="mailto:sovanrothapit@gmail.com"
+            class="dark:text-white text-[25px]"
+            >support@camflix.com</a
+          >
+        </div>
+        <div class="space-x-7">
+          <span
+            ><a href="#" class="dark:text-white dark:bg-gray-900 text-[40px]"
+              ><i class="fa-brands fa-facebook"></i></a
+          ></span>
+          <span
+            ><a href="#" class="dark:text-white dark:bg-gray-900 text-[40px]"
+              ><i class="fa-brands fa-twitter"></i></a
+          ></span>
+          <span
+            ><a href="#" class="dark:text-white dark:bg-gray-900 text-[40px]"
+              ><i class="fa-brands fa-instagram"></i></a
+          ></span>
+        </div>
+      </div>
+
+      <div class="space-y-7">
+        <div>
+          <a href="#">
+            <img
+              src="../asset/New Logo iSTAD-06.png"
+              class="w-[230px] h-[87px]"
+              alt="Istad Logo"
+            />
+          </a>
+        </div>
+        <div>
+          <a
+            href="mailto:sovanrothapit@gmail.com"
+            class="dark:text-white text-[25px]"
+            >info.istad@gmail.com</a
+          >
+        </div>
+
+        <div class="space-x-7">
+          <span
+            ><a href="#" class="dark:text-white dark:bg-gray-900 text-[40px]"
+              ><i class="fa-brands fa-facebook"></i></a
+          ></span>
+          <span
+            ><a href="#" class="dark:text-white dark:bg-gray-900 text-[40px]"
+              ><i class="fa-brands fa-twitter"></i></a
+          ></span>
+          <span
+            ><a href="#" class="dark:text-white dark:bg-gray-900 text-[40px]"
+              ><i class="fa-brands fa-instagram"></i></a
+          ></span>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="dark:text-white text-[25px]">Quick Link</h3>
+        <div class="space-y-7 mt-6">
+          <div><a class="dark:text-white text-[20px]" href="#">Home</a></div>
+          <div>
+            <a class="dark:text-white text-[20px]" href="#">About Us</a>
+          </div>
+          <div>
+            <a class="dark:text-white text-[20px]" href="#">Explore Moives</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="dark:text-white text-[25px]">Support</h3>
+        <div class="space-y-7 mt-6">
+          <div><a class="dark:text-white text-[20px]" href="#">FAQs</a></div>
+          <div>
+            <a class="dark:text-white text-[20px]" href="#">Support Centre</a>
+          </div>
+          <div>
+            <a class="dark:text-white text-[20px]" href="#">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <hr />
+
+    <p class="dark:text-white text-[18px] flex justify-center mt-5 mb-5">
+      @copy right 2025 CamFlix. All right reserved.
+    </p>
+  </body>
+</html>

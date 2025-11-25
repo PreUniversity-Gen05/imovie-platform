@@ -32,3 +32,12 @@
     --font-type: "Roboto", sans-serif;
 
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+:root {
+  --font-type-logo: 'Pacifico', cursive;
+}
+.font-type-logo {
+  font-family: var(--font-type-logo);
+}
