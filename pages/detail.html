@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="../src/output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="bg-gray-900 gap-2">
+<body class="bg-gray-900 gap-2 relative z-10 w-full h-screen flex flex-col overflow-y-auto scroll-container">
     <!-- Main Scrollable Container -->
-    <div class="relative z-10 w-full h-screen flex flex-col overflow-y-auto scroll-container">
+    <!-- <div class="relative z-10 w-full h-screen flex flex-col overflow-y-auto scroll-container"> -->
         <!-- Header: Made Absolute to overlay the Hero Section -->
         <header class="absolute top-0 left-0 w-full px-6 py-4 flex items-center justify-between z-50 mb-10">
 
@@ -60,15 +60,19 @@
                 Explore</a>
         </div>
 
+
+
+
+
         <!-- Main Content Area -->
-        <main class="bg-gray-900 text-gray-50 flex-1 mt-[100px]">
+        <main class="bg-background-light dark:bg-background text-text-color-light  dark:text-text-color flex-1 mt-[100px]">
             <!-- SECTION 2: MOVIE DETAILS -->
             <section class="py-12">
                 <div class="container mx-auto px-4">
                     <div class="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
                         <!-- Movie Poster -->
                         <div class="flex-shrink-0">
-                            <img class="w-full max-w-md lg:max-w-lg rounded-2xl shadow-lg" 
+                            <img class="w-full max-w-md  h-[500px] lg:max-w-lg rounded-2xl shadow-lg" 
                                 src="https://media.posterstore.com/site_images/68631db092c536b9cc92b06f_775081888_WB0101-5.jpg" 
                                 alt="Avatar movie poster">
                         </div>
@@ -129,7 +133,7 @@
                                 
                                 <!-- Action Buttons -->
                                 <div class="flex flex-col sm:flex-row gap-4 pt-6">
-                                    <button class="bg-blue-600 hover:bg-blue-700 text-white text-xl font-medium py-3 px-6 rounded-xl transition duration-200 flex items-center justify-center gap-2">
+                                    <button class="bg-primary-light hover:bg-accents dark:bg-primary dark:hover:bg-accents text-white text-xl font-medium py-3 px-6 rounded-xl transition duration-200 flex items-center justify-center gap-2">
                                         View Trailer
                                         <i class="fa-regular fa-circle-play"></i>
                                     </button>
@@ -158,9 +162,9 @@
                                         <img class="w-full h-full object-cover" 
                                             src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" 
                                             alt="Actor">
-                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md bg-black/40 p-4 text-center">
+                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md dark:bg-black/40 bg-black/10  p-4 text-center">
                                             <p class="font-medium text-xl">Daredevil</p>
-                                            <p class="text-gray-300">Superhero</p>
+                                            <p class="text-description-color-light dark:text-description-color">Superhero</p>
                                         </div>
                                     </div>
                                 </div>
@@ -172,9 +176,9 @@
                                         <img class="w-full h-full object-cover" 
                                             src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" 
                                             alt="Actor">
-                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md bg-black/40 p-4 text-center">
+                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md dark:bg-black/40 bg-black/10 p-4 text-center">
                                             <p class="font-medium text-xl">Daredevil</p>
-                                            <p class="text-gray-300">Superhero</p>
+                                            <p class="text-description-color-light dark:text-description-color">Superhero</p>
                                         </div>
                                     </div>
                                 </div>
@@ -185,9 +189,9 @@
                                         <img class="w-full h-full object-cover" 
                                             src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" 
                                             alt="Actor">
-                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md bg-black/40 p-4 text-center">
+                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md dark:bg-black/40 bg-black/10 p-4 text-center">
                                             <p class="font-medium text-xl">Daredevil</p>
-                                            <p class="text-gray-300">Superhero</p>
+                                            <p class="text-description-color-light dark:text-description-color">Superhero</p>
                                         </div>
                                     </div>
                                 </div>
@@ -198,9 +202,9 @@
                                         <img class="w-full h-full object-cover" 
                                             src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" 
                                             alt="Actor">
-                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md bg-black/40 p-4 text-center">
+                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md dark:bg-black/40 bg-black/10 p-4 text-center">
                                             <p class="font-medium text-xl">Daredevil</p>
-                                            <p class="text-gray-300">Superhero</p>
+                                            <p class="text-description-color-light dark:text-description-color">Superhero</p>
                                         </div>
                                     </div>
                                 </div>
@@ -211,9 +215,69 @@
                                         <img class="w-full h-full object-cover" 
                                             src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" 
                                             alt="Actor">
-                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md bg-black/40 p-4 text-center">
+                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md dark:bg-black/40 bg-black/10 p-4 text-center">
                                             <p class="font-medium text-xl">Daredevil</p>
-                                            <p class="text-gray-300">Superhero</p>
+                                            <p class="text-description-color-light dark:text-description-color">Superhero</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <!-- Actor Card 5 -->
+                                <div class="flex-shrink-0 w-64 h-80 transform transition-transform duration-300 hover:scale-95 ease-in-out">
+                                    <div class="relative w-full h-full rounded-2xl overflow-hidden">
+                                        <img class="w-full h-full object-cover" 
+                                            src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" 
+                                            alt="Actor">
+                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md dark:bg-black/40 bg-black/10 p-4 text-center">
+                                            <p class="font-medium text-xl">Daredevil</p>
+                                            <p class="text-description-color-light dark:text-description-color">Superhero</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <!-- Actor Card 5 -->
+                                <div class="flex-shrink-0 w-64 h-80 transform transition-transform duration-300 hover:scale-95 ease-in-out">
+                                    <div class="relative w-full h-full rounded-2xl overflow-hidden">
+                                        <img class="w-full h-full object-cover" 
+                                            src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" 
+                                            alt="Actor">
+                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md dark:bg-black/40 bg-black/10 p-4 text-center">
+                                            <p class="font-medium text-xl">Daredevil</p>
+                                            <p class="text-description-color-light dark:text-description-color">Superhero</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <!-- Actor Card 5 -->
+                                <div class="flex-shrink-0 w-64 h-80 transform transition-transform duration-300 hover:scale-95 ease-in-out">
+                                    <div class="relative w-full h-full rounded-2xl overflow-hidden">
+                                        <img class="w-full h-full object-cover" 
+                                            src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" 
+                                            alt="Actor">
+                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md dark:bg-black/40 bg-black/10 p-4 text-center">
+                                            <p class="font-medium text-xl">Daredevil</p>
+                                            <p class="text-description-color-light dark:text-description-color">Superhero</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <!-- Actor Card 5 -->
+                                <div class="flex-shrink-0 w-64 h-80 transform transition-transform duration-300 hover:scale-95 ease-in-out">
+                                    <div class="relative w-full h-full rounded-2xl overflow-hidden">
+                                        <img class="w-full h-full object-cover" 
+                                            src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" 
+                                            alt="Actor">
+                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md dark:bg-black/40 bg-black/10 p-4 text-center">
+                                            <p class="font-medium text-xl">Daredevil</p>
+                                            <p class="text-description-color-light dark:text-description-color">Superhero</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <!-- Actor Card 5 -->
+                                <div class="flex-shrink-0 w-64 h-80 transform transition-transform duration-300 hover:scale-95 ease-in-out">
+                                    <div class="relative w-full h-full rounded-2xl overflow-hidden">
+                                        <img class="w-full h-full object-cover" 
+                                            src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" 
+                                            alt="Actor">
+                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md  dark:bg-black/40 bg-black/10 p-4 text-center">
+                                            <p class="font-medium text-xl">Daredevil</p>
+                                            <p class="text-description-color-light dark:text-description-color">Superhero</p>
                                         </div>
                                     </div>
                                 </div>
@@ -228,14 +292,14 @@
                 <div class="container mx-auto px-4">
                     <div class="flex justify-between items-center mb-8">
                         <h2 class="text-3xl font-bold">Related Movies</h2>
-                        <a href="#" class="text-sky-400 hover:text-sky-300 text-lg font-medium transition duration-200">
+                        <a href="#" class="dark:text-sky-400 dark:hover:text-sky-300 text-text-color-light hover:to-blue-500 text-lg font-medium transition duration-200">
                             See All
                         </a>
                     </div>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         <!-- Movie Card 1 -->
-                        <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-95">
+                        <div class=" rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-95">
                             <div class="relative">
                                 <a href="#">
                                     <img class="w-full h-96 object-cover"
@@ -248,18 +312,18 @@
                                 <div class="flex justify-between items-start">
                                     <div>
                                         <h3 class="font-semibold text-xl">John Carter</h3>
-                                        <p class="text-gray-400">Action / Romance</p>
+                                        <p class="text-description-color-light">Action / Romance</p>
                                     </div>
                                     <div class="flex items-center gap-1 text-amber-300">
                                         <i class="fa-solid fa-star"></i>
-                                        <span class="text-white">4.2</span>
+                                        <span class="text-text-color-light ">4.2</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Movie Card 2 -->
-                        <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-95">
+                        <div class=" rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-95">
                             <div class="relative">
                                 <a href="#">
                                     <img class="w-full h-96 object-cover"
@@ -272,18 +336,18 @@
                                 <div class="flex justify-between items-start">
                                     <div>
                                         <h3 class="font-semibold text-xl">John Carter</h3>
-                                        <p class="text-gray-400">Action / Romance</p>
+                                        <p class="text-description-color-light">Action / Romance</p>
                                     </div>
                                     <div class="flex items-center gap-1 text-amber-300">
                                         <i class="fa-solid fa-star"></i>
-                                        <span class="text-white">4.2</span>
+                                        <span class="text-text-color-light">4.2</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Movie Card 3 -->
-                        <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-95">
+                        <div class=" rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-95">
                             <div class="relative">
                                 <a href="#">
                                     <img class="w-full h-96 object-cover"
@@ -296,18 +360,18 @@
                                 <div class="flex justify-between items-start">
                                     <div>
                                         <h3 class="font-semibold text-xl">John Carter</h3>
-                                        <p class="text-gray-400">Action / Romance</p>
+                                        <p class="text-description-color-light">Action / Romance</p>
                                     </div>
                                     <div class="flex items-center gap-1 text-amber-300">
                                         <i class="fa-solid fa-star"></i>
-                                        <span class="text-white">4.2</span>
+                                        <span class="text-text-color-light">4.2</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Movie Card 4 -->
-                        <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-95">
+                        <div class="rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-95">
                             <div class="relative">
                                 <a href="#">
                                     <img class="w-full h-96 object-cover"
@@ -320,11 +384,11 @@
                                 <div class="flex justify-between items-start">
                                     <div>
                                         <h3 class="font-semibold text-xl">John Carter</h3>
-                                        <p class="text-gray-400">Action / Romance</p>
+                                        <p class="text-description-color-light">Action / Romance</p>
                                     </div>
                                     <div class="flex items-center gap-1 text-amber-300">
                                         <i class="fa-solid fa-star"></i>
-                                        <span class="text-white">4.2</span>
+                                        <span class="text-text-color-light">4.2</span>
                                     </div>
                                 </div>
                             </div>
@@ -402,7 +466,7 @@
             </div>
         </footer>
 
-    </div>
+    <!-- </div> -->
 
     <script>
         // Mobile menu functionality
