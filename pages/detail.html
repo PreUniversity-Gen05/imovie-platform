@@ -7,350 +7,351 @@
     <link rel="stylesheet" href="../src/output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body class="bg-gray-900 gap-2">
+    <!-- Main Scrollable Container -->
+    <div class="relative z-10 w-full h-screen flex flex-col overflow-y-auto scroll-container">
+        <!-- Header: Made Absolute to overlay the Hero Section -->
+        <header class="absolute top-0 left-0 w-full px-6 py-4 flex items-center justify-between z-50 mb-10">
 
-    <!-- main -->
-     <main class="bg-gray-900 text-gray-50 ">
-        <!-- section 1 the detail movie -->
-        <section class="">
-            <!-- full of section -->
-            <div class="flex w-full min-h-screen justify-around items-center ">
-                <div class="flex flex-col md:flex-row md:space-x-4 space-y-3 ">
-                    <!-- image -->
-                <div class="flex justify-center ">
-                    <img class="md:w-[700px] h-[499px] rounded-[15px]" src="https://media.posterstore.com/site_images/68631db092c536b9cc92b06f_775081888_WB0101-5.jpg?auto=compress%2Cformat&fit=max&w=3840" alt="picture_movie">
+            <nav class="absolute top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">CamFlix</span>
                 </div>
-                <!-- right side -->
-                <div class="flex-1 ml-[15px] md:ml-[30px] md:mr-[30px] lg:ml-[100px] space-y-5 text-[18px]">
-                    <!-- tittle -->
-                    <div class="ml-11">
-                        <h1 class="text-[40px] font-bold">Avatar 1</h1>
+
+                <div class="hidden md:flex items-center bg-white/10 backdrop-blur-md rounded-full px-4 py-2 w-96 border border-white/10">
+                    <i class="fa-solid fa-search text-gray-400 mr-3"></i>
+                    <input type="text" placeholder="Search movies..." class="bg-transparent border-none outline-none text-sm w-full text-white placeholder-gray-400">
+                </div>
+
+                <div class="flex items-center gap-6 text-sm font-medium">
+                    <a href="#" class="text-white hover:text-blue-400 transition">Home</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">About us</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">Let's Explore</a>
+                    <div class="w-8 h-8 rounded-full bg-gray-600 overflow-hidden border border-white/20">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80" alt="User" />
                     </div>
-                    <!-- the date, type, overview -->
-                    <div class="w-[500px] space-y-5 space-x-10">
-                        <div class="flex items-center ml-11">
-                            <i class="fa-regular fa-calendar mr-2"></i>
-                            <p class="">19 November 2025</p>
+                </div>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden text-white p-2 focus:outline-none drop-shadow-md">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+        </header>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-black/95 z-[60] hidden flex-col items-center justify-center space-y-8 transition-opacity duration-300 md:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-gray-400 hover:text-white">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+            <a href="#"
+                class="text-2xl font-bold text-white hover:text-[var(--color-indigo-500)] transition-colors mobile-link">Home</a>
+            <a href="#"
+                class="text-2xl font-bold text-white hover:text-[var(--color-indigo-500)] transition-colors mobile-link">About
+                us</a>
+            <a href="#"
+                class="text-2xl font-bold text-white hover:text-[var(--color-indigo-500)] transition-colors mobile-link flex items-center gap-2">Let's
+                Explore</a>
+        </div>
+
+        <!-- Main Content Area -->
+        <main class="bg-gray-900 text-gray-50 flex-1 mt-[100px]">
+            <!-- SECTION 2: MOVIE DETAILS -->
+            <section class="py-12">
+                <div class="container mx-auto px-4">
+                    <div class="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
+                        <!-- Movie Poster -->
+                        <div class="flex-shrink-0">
+                            <img class="w-full max-w-md lg:max-w-lg rounded-2xl shadow-lg" 
+                                src="https://media.posterstore.com/site_images/68631db092c536b9cc92b06f_775081888_WB0101-5.jpg" 
+                                alt="Avatar movie poster">
                         </div>
-                        <div class="flex items-center">
-                            <i class="fa-solid fa-hashtag mr-2"></i>
-                            <p> Active / Romantic</p>
-                        </div>
-                         <!-- class="w-6 h-6 mr-2 text-sky-500" -->
-                        <div>
-                            <div class="flex items-center mb-3">
-                                <i class="fa-solid fa-layer-group mr-2" ></i>
-                                <h3 class="font-semibold">overview</h3>
-                            </div>
-                            <p class="text-justify">Avatar is the film series that is a science fiction saga about humans using genetically engineered Na'vi bodies (avatars) to interact with the native inhabitants of the moon Pandora while mining a valuable resource.</p>
-                        </div>
-                        <!-- the interest of user -->
-                        <div class="flex space-x-10">
-                            <!-- favorite -->
-                            <div>
-                               <i class="fa-regular fa-heart ml-2"></i>
-                               <p class="text-[12px]">Favorite</p> 
-                            </div>
-                            <!-- Share -->
-                            <div>
-                                <i class="fa-solid fa-share-nodes ml-1"></i>
-                                <p class="text-[12px]">Share</p>
-                            </div>
-                            <!-- Rating -->
-                            <div>
-                                <div class="text-amber-400 ml-[40px]">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
+                        
+                        <!-- Movie Details -->
+                        <div class="mt-5 flex-1 space-y-6">
+                            <!-- Title -->
+                            <h1 class="text-4xl lg:text-5xl font-bold">Avatar 1</h1>
+                            
+                            <!-- Metadata -->
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <i class="fa-regular fa-calendar mr-3 text-lg"></i>
+                                    <p class="text-lg">19 November 2025</p>
                                 </div>
-                                <p class="text-[12px] ml-20">Rating</p>
+                                <div class="flex items-center">
+                                    <i class="fa-solid fa-hashtag mr-3 text-lg"></i>
+                                    <p class="text-lg">Action / Romance</p>
+                                </div>
+                                
+                                <!-- Overview -->
+                                <div>
+                                    <div class="flex items-center mb-3">
+                                        <i class="fa-solid fa-layer-group mr-3 text-lg"></i>
+                                        <h3 class="font-semibold text-xl">Overview</h3>
+                                    </div>
+                                    <p class="text-lg text-justify leading-relaxed">
+                                        Avatar is the film series that is a science fiction saga about humans using genetically engineered Na'vi bodies (avatars) to interact with the native inhabitants of the moon Pandora while mining a valuable resource.
+                                    </p>
+                                </div>
+                                
+                                <!-- User Interactions -->
+                                <div class="flex space-x-12 pt-4">
+                                    <!-- Favorite -->
+                                    <div class="text-center">
+                                        <i class="fa-regular fa-heart text-2xl mb-1"></i>
+                                        <p class="text-sm">Favorite</p>
+                                    </div>
+                                    
+                                    <!-- Share -->
+                                    <div class="text-center">
+                                        <i class="fa-solid fa-share-nodes text-2xl mb-1"></i>
+                                        <p class="text-sm">Share</p>
+                                    </div>
+                                    
+                                    <!-- Rating -->
+                                    <div class="text-center">
+                                        <div class="text-amber-400 text-xl mb-1">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                        </div>
+                                        <p class="text-sm">Rating</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Action Buttons -->
+                                <div class="flex flex-col sm:flex-row gap-4 pt-6">
+                                    <button class="bg-blue-600 hover:bg-blue-700 text-white text-xl font-medium py-3 px-6 rounded-xl transition duration-200 flex items-center justify-center gap-2">
+                                        View Trailer
+                                        <i class="fa-regular fa-circle-play"></i>
+                                    </button>
+                                    
+                                </div>
                             </div>
                         </div>
-                        <!-- button -->
-                         <div class="flex space-x-5">
-                            <!-- View Trailer -->
-                            <div>
-                                <button class="bg-blue-600 text-[24px] w-[200px] font-normal p-2.5 rounded-[15px]">
-                                    View Trailer
-                                    <i class="fa-regular fa-circle-play"></i>
-                                </button>
+                    </div>
+                    
+                    <!-- Divider -->
+                    <div class="border-t border-gray-700 mt-12 pt-8"></div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: ACTORS AND ACTRESSES -->
+            <section class="py-12">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-3xl font-bold mb-8">Actor and Actresses of movie</h2>
+                    
+                    <div class="relative">
+                        <div class="w-full overflow-x-auto pb-6">
+                            <div class="flex gap-6">
+                                <!-- Actor Card 1 -->
+                                <div class="flex-shrink-0 w-64 h-80 transform transition-transform duration-300 hover:scale-95 ease-in-out">
+                                    <div class="relative w-full h-full rounded-2xl overflow-hidden">
+                                        <img class="w-full h-full object-cover" 
+                                            src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" 
+                                            alt="Actor">
+                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md bg-black/40 p-4 text-center">
+                                            <p class="font-medium text-xl">Daredevil</p>
+                                            <p class="text-gray-300">Superhero</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Repeat actor cards as needed -->
+                                <!-- Actor Card 2 -->
+                                <div class="flex-shrink-0 w-64 h-80 transform transition-transform duration-300 hover:scale-95 ease-in-out">
+                                    <div class="relative w-full h-full rounded-2xl overflow-hidden">
+                                        <img class="w-full h-full object-cover" 
+                                            src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" 
+                                            alt="Actor">
+                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md bg-black/40 p-4 text-center">
+                                            <p class="font-medium text-xl">Daredevil</p>
+                                            <p class="text-gray-300">Superhero</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Actor Card 3 -->
+                                <div class="flex-shrink-0 w-64 h-80 transform transition-transform duration-300 hover:scale-95 ease-in-out">
+                                    <div class="relative w-full h-full rounded-2xl overflow-hidden">
+                                        <img class="w-full h-full object-cover" 
+                                            src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" 
+                                            alt="Actor">
+                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md bg-black/40 p-4 text-center">
+                                            <p class="font-medium text-xl">Daredevil</p>
+                                            <p class="text-gray-300">Superhero</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Actor Card 4 -->
+                                <div class="flex-shrink-0 w-64 h-80 transform transition-transform duration-300 hover:scale-95 ease-in-out">
+                                    <div class="relative w-full h-full rounded-2xl overflow-hidden">
+                                        <img class="w-full h-full object-cover" 
+                                            src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" 
+                                            alt="Actor">
+                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md bg-black/40 p-4 text-center">
+                                            <p class="font-medium text-xl">Daredevil</p>
+                                            <p class="text-gray-300">Superhero</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Actor Card 5 -->
+                                <div class="flex-shrink-0 w-64 h-80 transform transition-transform duration-300 hover:scale-95 ease-in-out">
+                                    <div class="relative w-full h-full rounded-2xl overflow-hidden">
+                                        <img class="w-full h-full object-cover" 
+                                            src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" 
+                                            alt="Actor">
+                                        <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md bg-black/40 p-4 text-center">
+                                            <p class="font-medium text-xl">Daredevil</p>
+                                            <p class="text-gray-300">Superhero</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- Watch Now -->
-                             <div class="md:mr-2">
-                                <button class="bg-red-600 text-[24px] w-[200px] font-normal p-2.5 rounded-[15px]">
-                                    Watch Now
-                                    <i class="fa-regular fa-circle-play"></i>
-                                </button>
-                             </div>
-                         </div>
+                        </div>
                     </div>
                 </div>
-                </div>  
-            </div>
-            <div>
-                <hr class="border mt-10">
-            </div>
-        </section>
+            </section>
 
-
-
-        <section>
-           <h2 class="text-3xl font-bold ml-[40px] mt-[50px]">Actor and Actresses of movie</h2>
-            <div class="w-full overflow-x-auto snap-x snap-mandatory flex gap-20 m-[50px]">
-                
-  <div class="snap-center flex-shrink-0 w-[250px] h-[300px] mx-auto transform transition-transform duration-300 hover:scale-90 ease-in-out">
-    <!-- image 1-->              
-    <img class="w-full h-full object-cover rounded-2xl" src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" alt="">                 
-    <div class="mt-[-60px] backdrop-blur-md h-[60px] rounded-2xl text-center">
-        <p class="font-medium text-[20px]">Daredevil</p>
-        <p>superhero</p>
+            <!-- SECTION 4: RELATED MOVIES -->
+            <section class="py-12">
+                <div class="container mx-auto px-4">
+                    <div class="flex justify-between items-center mb-8">
+                        <h2 class="text-3xl font-bold">Related Movies</h2>
+                        <a href="#" class="text-sky-400 hover:text-sky-300 text-lg font-medium transition duration-200">
+                            See All
+                        </a>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <!-- Movie Card 1 -->
+                        <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-95">
+                            <div class="relative">
+                                <a href="#">
+                                    <img class="w-full h-96 object-cover"
+                                        src="https://goldendiscs.ie/cdn/shop/files/HP.jpg?v=1701949807"
+                                        alt="Movie poster">
+                                </a>
+                            </div>
+                            
+                            <div class="p-4">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h3 class="font-semibold text-xl">John Carter</h3>
+                                        <p class="text-gray-400">Action / Romance</p>
+                                    </div>
+                                    <div class="flex items-center gap-1 text-amber-300">
+                                        <i class="fa-solid fa-star"></i>
+                                        <span class="text-white">4.2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Movie Card 2 -->
+                        <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-95">
+                            <div class="relative">
+                                <a href="#">
+                                    <img class="w-full h-96 object-cover"
+                                        src="https://goldendiscs.ie/cdn/shop/files/HP.jpg?v=1701949807"
+                                        alt="Movie poster">
+                                </a>
+                            </div>
+                            
+                            <div class="p-4">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h3 class="font-semibold text-xl">John Carter</h3>
+                                        <p class="text-gray-400">Action / Romance</p>
+                                    </div>
+                                    <div class="flex items-center gap-1 text-amber-300">
+                                        <i class="fa-solid fa-star"></i>
+                                        <span class="text-white">4.2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Movie Card 3 -->
+                        <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-95">
+                            <div class="relative">
+                                <a href="#">
+                                    <img class="w-full h-96 object-cover"
+                                        src="https://goldendiscs.ie/cdn/shop/files/HP.jpg?v=1701949807"
+                                        alt="Movie poster">
+                                </a>
+                            </div>
+                            
+                            <div class="p-4">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h3 class="font-semibold text-xl">John Carter</h3>
+                                        <p class="text-gray-400">Action / Romance</p>
+                                    </div>
+                                    <div class="flex items-center gap-1 text-amber-300">
+                                        <i class="fa-solid fa-star"></i>
+                                        <span class="text-white">4.2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Movie Card 4 -->
+                        <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-95">
+                            <div class="relative">
+                                <a href="#">
+                                    <img class="w-full h-96 object-cover"
+                                        src="https://goldendiscs.ie/cdn/shop/files/HP.jpg?v=1701949807"
+                                        alt="Movie poster">
+                                </a>
+                            </div>
+                            
+                            <div class="p-4">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h3 class="font-semibold text-xl">John Carter</h3>
+                                        <p class="text-gray-400">Action / Romance</p>
+                                    </div>
+                                    <div class="flex items-center gap-1 text-amber-300">
+                                        <i class="fa-solid fa-star"></i>
+                                        <span class="text-white">4.2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
-  </div>
 
-  <div class="snap-center flex-shrink-0 w-[250px] h-[300px] mx-auto transform transition-transform duration-300 hover:scale-90 ease-in-out">
-    <!-- image 1-->              
-    <img class="w-full h-full object-cover rounded-2xl" src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" alt="">                 
-    <div class="mt-[-60px] backdrop-blur-md h-[60px] rounded-2xl text-center">
-        <p class="font-medium text-[20px]">Daredevil</p>
-        <p>superhero</p>
-    </div>
-  </div>
-
-  <div class="snap-center flex-shrink-0 w-[250px] h-[300px] mx-auto transform transition-transform duration-300 hover:scale-90 ease-in-out">
-    <!-- image 1-->              
-    <img class="w-full h-full object-cover rounded-2xl" src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" alt="">                 
-    <div class="mt-[-60px] backdrop-blur-md h-[60px] rounded-2xl text-center">
-        <p class="font-medium text-[20px]">Daredevil</p>
-        <p>superhero</p>
-    </div>
-  </div>
-
-  <div class="snap-center flex-shrink-0 w-[250px] h-[300px] mx-auto transform transition-transform duration-300 hover:scale-90 ease-in-out">
-    <!-- image 1-->              
-    <img class="w-full h-full object-cover rounded-2xl" src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" alt="">                 
-    <div class="mt-[-60px] backdrop-blur-md h-[60px] rounded-2xl text-center">
-        <p class="font-medium text-[20px]">Daredevil</p>
-        <p>superhero</p>
-    </div>
-  </div>
-
-  <div class="snap-center flex-shrink-0 w-[250px] h-[300px] mx-auto transform transition-transform duration-300 hover:scale-90 ease-in-out">
-    <!-- image 1-->              
-    <img class="w-full h-full object-cover rounded-2xl" src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" alt="">                 
-    <div class="mt-[-60px] backdrop-blur-md h-[60px] rounded-2xl text-center">
-        <p class="font-medium text-[20px]">Daredevil</p>
-        <p>superhero</p>
-    </div>
-  </div>
-
-  <div class="snap-center flex-shrink-0 w-[250px] h-[300px] mx-auto transform transition-transform duration-300 hover:scale-90 ease-in-out">
-    <!-- image 1-->              
-    <img class="w-full h-full object-cover rounded-2xl" src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" alt="">                 
-    <div class="mt-[-60px] backdrop-blur-md h-[60px] rounded-2xl text-center">
-        <p class="font-medium text-[20px]">Daredevil</p>
-        <p>superhero</p>
-    </div>
-  </div>
-
-  <div class="snap-center flex-shrink-0 w-[250px] h-[300px] mx-auto transform transition-transform duration-300 hover:scale-90 ease-in-out">
-    <!-- image 1-->              
-    <img class="w-full h-full object-cover rounded-2xl" src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" alt="">                 
-    <div class="mt-[-60px] backdrop-blur-md h-[60px] rounded-2xl text-center">
-        <p class="font-medium text-[20px]">Daredevil</p>
-        <p>superhero</p>
-    </div>
-  </div>
-
-  <div class="snap-center flex-shrink-0 w-[250px] h-[300px] mx-auto transform transition-transform duration-300 hover:scale-90 ease-in-out">
-    <!-- image 1-->              
-    <img class="w-full h-full object-cover rounded-2xl" src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" alt="">                 
-    <div class="mt-[-60px] backdrop-blur-md h-[60px] rounded-2xl text-center">
-        <p class="font-medium text-[20px]">Daredevil</p>
-        <p>superhero</p>
-    </div>
-  </div>
-
-  <div class="snap-center flex-shrink-0 w-[250px] h-[300px] mx-auto transform transition-transform duration-300 hover:scale-90 ease-in-out">
-    <!-- image 1-->              
-    <img class="w-full h-full object-cover rounded-2xl" src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" alt="">                 
-    <div class="mt-[-60px] backdrop-blur-md h-[60px] rounded-2xl text-center">
-        <p class="font-medium text-[20px]">Daredevil</p>
-        <p>superhero</p>
-    </div>
-  </div>
-
-  <div class="snap-center flex-shrink-0 w-[250px] h-[300px] mx-auto transform transition-transform duration-300 hover:scale-90 ease-in-out">
-    <!-- image 1-->              
-    <img class="w-full h-full object-cover rounded-2xl" src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" alt="">                 
-    <div class="mt-[-60px] backdrop-blur-md h-[60px] rounded-2xl text-center">
-        <p class="font-medium text-[20px]">Daredevil</p>
-        <p>superhero</p>
-    </div>
-  </div>
-
-  <div class="snap-center flex-shrink-0 w-[250px] h-[300px] mx-auto transform transition-transform duration-300 hover:scale-90 ease-in-out">
-    <!-- image 1-->              
-    <img class="w-full h-full object-cover rounded-2xl" src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" alt="">                 
-    <div class="mt-[-60px] backdrop-blur-md h-[60px] rounded-2xl text-center">
-        <p class="font-medium text-[20px]">Daredevil</p>
-        <p>superhero</p>
-    </div>
-  </div>
-
-  <div class="snap-center flex-shrink-0 w-[250px] h-[300px] mx-auto transform transition-transform duration-300 hover:scale-90 ease-in-out">
-    <!-- image 1-->              
-    <img class="w-full h-full object-cover rounded-2xl" src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" alt="">                 
-    <div class="mt-[-60px] backdrop-blur-md h-[60px] rounded-2xl text-center">
-        <p class="font-medium text-[20px]">Daredevil</p>
-        <p>superhero</p>
-    </div>
-  </div>
-
-  <div class="snap-center flex-shrink-0 w-[250px] h-[300px] mx-auto transform transition-transform duration-300 hover:scale-90 ease-in-out">
-    <!-- image 1-->              
-    <img class="w-full h-full object-cover rounded-2xl" src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" alt="">                 
-    <div class="mt-[-60px] backdrop-blur-md h-[60px] rounded-2xl text-center">
-        <p class="font-medium text-[20px]">Daredevil</p>
-        <p>superhero</p>
-    </div>
-  </div>
-
-  <div class="snap-center flex-shrink-0 w-[250px] h-[300px] mx-auto transform transition-transform duration-300 hover:scale-90 ease-in-out">
-    <!-- image 1-->              
-    <img class="w-full h-full object-cover rounded-2xl" src="https://m.media-amazon.com/images/M/MV5BZWZhNjllZGYtN2JlOS00Nzc5LTkyODUtMzlkN2Y0ODQ3YWE3XkEyXkFqcGc@._V1_.jpg" alt="">                 
-    <div class="mt-[-60px] backdrop-blur-md h-[60px] rounded-2xl text-center">
-        <p class="font-medium text-[20px]">Daredevil</p>
-        <p>superhero</p>
-    </div>
-  </div>
-</div>
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
             
-        </section>
-
-        <section> 
-           <div class="flex justify-between items-center mb-6">
-                <h2 class="text-3xl font-bold ml-[40px]">Related Movies</h2>
-                <a href="#" class="text-sky-400 hover:text-sky-300 text-[20px] font-medium transition duration-200">see all</a>
-            </div>
-        <div
-      class="dark:bg-gray-900 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-5"
-    >
-      <!-- Movie Card -->
-      <div class="card dark:text-white">
-        <div>
-          <a href="#">
-            <img
-              class="w-[291px] h-[376px] object-cover mx-auto rounded-3xl transform transition-transform duration-300 hover:scale-90 ease-in-out"
-              src="https://goldendiscs.ie/cdn/shop/files/HP.jpg?v=1701949807"
-              alt=""
-          /></a>
-        </div>
-
-        <div class="mt-2 mb-2 flex justify-around items-start">
-          <!-- LEFT SIDE (Title + Genre) -->
-          <div>
-            <span class="block font-semibold text-[28px]">John Carter</span>
-            <p class="text-gray-600 dark:text-gray-300 text-[18px]">
-              Action / Romance
-            </p>
-          </div>
-
-          <!-- RIGHT SIDE (Rating) -->
-          <span
-            class="text-[20px] mt-1 flex items-center gap-1.5 text-amber-300"
-          >
-            <i class="fa-solid fa-star"></i>
-            <span class="text-white">4.2</span>
-          </span>
-        </div>
-      </div>
-      <div class="card dark:text-white">
-        <div>
-          <a href="#">
-            <img
-              class="w-[291px] h-[376px] object-cover mx-auto rounded-3xl transform transition-transform duration-300 hover:scale-90 ease-in-out"
-              src="https://goldendiscs.ie/cdn/shop/files/HP.jpg?v=1701949807"
-              alt=""
-          /></a>
-        </div>
-
-        <div class="mt-2 mb-2 flex justify-around items-start">
-          <!-- LEFT SIDE (Title + Genre) -->
-          <div>
-            <span class="block font-semibold text-[28px]">John Carter</span>
-            <p class="text-gray-600 dark:text-gray-300 text-[18px]">
-              Action / Romance
-            </p>
-          </div>
-
-          <!-- RIGHT SIDE (Rating) -->
-          <span
-            class="text-[20px] mt-1 flex items-center gap-1.5 text-amber-300"
-          >
-            <i class="fa-solid fa-star"></i>
-            <span class="text-white">4.2</span>
-          </span>
-        </div>
-      </div>
-      <div class="card dark:text-white">
-        <div>
-          <a href="#">
-            <img
-              class="w-[291px] h-[376px] object-cover mx-auto rounded-3xl transform transition-transform duration-300 hover:scale-90 ease-in-out"
-              src="https://goldendiscs.ie/cdn/shop/files/HP.jpg?v=1701949807"
-              alt=""
-          /></a>
-        </div>
-
-        <div class="mt-2 mb-2 flex justify-around items-start">
-          <!-- LEFT SIDE (Title + Genre) -->
-          <div>
-            <span class="block font-semibold text-[28px]">John Carter</span>
-            <p class="text-gray-600 dark:text-gray-300 text-[18px]">
-              Action / Romance
-            </p>
-          </div>
-
-          <!-- RIGHT SIDE (Rating) -->
-          <span
-            class="text-[20px] mt-1 flex items-center gap-1.5 text-amber-300"
-          >
-            <i class="fa-solid fa-star"></i>
-            <span class="text-white">4.2</span>
-          </span>
-        </div>
-      </div>
-      <div class="card dark:text-white">
-        <div>
-          <a href="#">
-            <img
-              class="w-[291px] h-[376px] object-cover mx-auto rounded-3xl transform transition-transform duration-300 hover:scale-90 ease-in-out"
-              src="https://goldendiscs.ie/cdn/shop/files/HP.jpg?v=1701949807"
-              alt=""
-          /></a>
-        </div>
-
-        <div class="mt-2 mb-2 flex justify-around items-start">
-          <!-- LEFT SIDE (Title + Genre) -->
-          <div>
-            <span class="block font-semibold text-[28px]">John Carter</span>
-            <p class="text-gray-600 dark:text-gray-300 text-[18px]">
-              Action / Romance
-            </p>
-          </div>
-
-          <!-- RIGHT SIDE (Rating) -->
-          <span
-            class="text-[20px] mt-1 flex items-center gap-1.5 text-amber-300"
-          >
-            <i class="fa-solid fa-star"></i>
-            <span class="text-white">4.2</span>
-          </span>
-        </div>
-      </div>
-      </section>
-     </main>
+            if (mobileMenuBtn && closeMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.remove('hidden');
+                });
+                
+                closeMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
