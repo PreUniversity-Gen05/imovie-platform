@@ -1,14 +1,15 @@
-const API_URL = 'https://api.themoviedb.org/3/movie/top_rated?api_key=4113f3ad734e747a5b463cde8c55de42&language=en-US&page=1';
-const IMAGE_BASE = 'https://image.tmdb.org/t/p/w500';
+const API_URL = 'https://api.themoviedb.org/3/movie/top_rated?api_key=4113f3ad734e747a5b463cde8c55de42&language=en-US&page=3';
+const IMAGE_BASE = 'https://image.tmdb.org/t/p/w400';
+
 
 const grid = document.getElementById('recommended-grid');
 const cardTemplate = document.getElementById('movie-card-template');
 
 /**
- * Fetches TMDB top rated movies and populates the "Recommended for you" grid.
+ * Fetches top rated movies and populates the "Recommended for you" grid.
  */
 async function populateTopRated() {
-    if (!grid || !cardTemplate) return;
+    // if (!grid || !cardTemplate) return;
 
     try {
         const response = await fetch(API_URL);
@@ -21,10 +22,7 @@ async function populateTopRated() {
     }
 }
 
-/**
- * Render up to eight cards inside the grid.
- * @param {Array} movies
- */
+
 function renderCards(movies) {
     grid.innerHTML = '';
 
@@ -44,7 +42,7 @@ function renderCards(movies) {
         img.alt = `${movie.title} poster`;
 
         title.textContent = movie.title ?? 'Untitled';
-        genre.textContent = movie.release_date ? `Released: ${movie.release_date}` : 'Release date TBD';
+        genre.textContent = movie.release_date ? `${movie.release_date}` : 'No date available';
         rating.textContent = Number(movie.vote_average).toFixed(1);
 
         grid.appendChild(cardFragment);
