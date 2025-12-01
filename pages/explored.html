@@ -87,12 +87,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
 
 
-<body id="homePage" class="bg-background-light dark:bg-background text-white font-sans antialiased overflow-x-hidden">
+<body id="homePage" class=" dark:bg-background text-white font-sans antialiased overflow-x-hidden">
     <!-- Navigation -->
     <nav id="mainNav"
         class="fixed top-0 left-0 w-full z-50 px-4 md:px-8 py-2 flex justify-between items-center bg-gradient-to-b from-black/90 to-transparent transition-all duration-300">
         <div class="flex items-center gap-2 z-50">
-            <a href="#homePage" rel="noopener noreferrer">
+            <a href="../index.html" rel="noopener noreferrer">
                 <img src="../images/CamFlix-Logo.png" alt="camflix Logo" class="h-12 w-auto object-contain">
             </a>
         </div>
@@ -133,7 +133,7 @@
 
 <!-- Main content -->
 <!-- CAROUSEL -->
-<div id="default-carousel" class="relative w-full h-screen" data-carousel="slide">
+<div id="default-carousel" class="relative w-full h-screen font-type" data-carousel="slide">
   <!-- Carousel wrapper -->
   <div class="relative h-full overflow-hidden">
     <!-- Slide 1 -->
@@ -189,36 +189,36 @@
 
 <!-- Explore Content Section (title) -->
             
-    <p class="text-size-h3 font-bold ml-7 mt-7 font-type text-text-color-light dark:text-text-color ">
+    <p class="text-size-h3 font-bold ml-7 mt-7 font-type text-gray-800 dark:text-[#EEF2FF]">
       Explore movies here
     </p>
  
     <!-- Content Section -->
-    <div id="explored-container" class="bg-background-light dark:bg-background mt-3 text-text-color-light dark:text-text-color backdrop-blur-md">
+    <div id="explored-container" class="dark:bg-background mt-3 text-gray-800 font-type dark:text-text-color backdrop-blur-md">
     </div>
 
     <template id="movie-card-template-explored">
-        <div class="group cursor-pointer movie-card text-size-small" data-movie-id="">
-            <div class="relative aspect-2/3 rounded-xl overflow-hidden mb-3 w-full">
-                <img src="" class="w-full min-h-60 object-cover group-hover:scale-110 transition duration-300" alt="Movie Poster">
+        <div class="group cursor-pointer movie-card" data-movie-id="">
+            <div class="relative aspect-2/3 rounded-xl overflow-hidden mb-3">
+                <img src="" class="w-full min-h-70 object-cover group-hover:scale-110 transition duration-300" alt="Movie Poster">
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition"></div>
             </div>
             <div class="flex place-content-between">
-                <h3 class="font-semibold truncate movie-title text-size-body"></h3>
-                <span class="text-yellow-400 flex items-center gap-1 text-size-small"><i class="fa-solid fa-star"></i> <span class="movie-rating"></span></span>
+                <h3 class="font-bold text-gray-800 dark:text-[#EEF2FF] text-[20px] truncate movie-title"></h3>
+                <span class="text-yellow-400 flex items-center gap-1"><i class="fa-solid fa-star"></i> <span class="movie-rating"></span></span>
             </div>
-            <div class="text-description-color-light dark:text-description-color flex items-center text-xs gap-2 mt-1 text-size-small">
+            <div class="flex items-center text-sm text-gray-500 dark:text-[#acafb5] gap-2 mt-1">
                 <span class="movie-genre"></span>
             </div>
         </div>
     </template>
 
 
-    <div class="flex items-center justify-between border-t border-white/10 px-4 py-3 sm:px-6 bg-background-light dark:bg-background  mt-10">
+    <div class="flex items-center justify-between border-t border-white/10 px-4 py-3 sm:px-6 dark:bg-background  mt-10">
 
-        <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between text-text-color-light dark:text-text-color">
+        <div class="hidden xs:flex sm:flex sm:flex-1 sm:items-center sm:justify-between text-text-color-light dark:text-[#EEF2FF]">
             <div>
-            <p id="pagination-info" class="text-sm text-text-color-light dark:text-text-color">
+            <p id="pagination-info" class="text-sm xs:text-xs text-text-color-light dark:text-[#EEF2FF]">
                 Showing
                 <span class="font-medium">1</span>
                 to

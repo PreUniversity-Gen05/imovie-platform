@@ -12,8 +12,9 @@
         href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700;800&family=Inter:wght@300;400;600;700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../src/output.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
@@ -83,10 +84,10 @@
 
 </head>
 
-<body id="homePage" class="bg-background-light dark:bg-background text-text-color-light dark:text-text-color font-sans antialiased overflow-x-hidden">
+<body id="homePage" class="dark:bg-background text-gray-800 dark:text-text-color font-sans antialiased overflow-x-hidden">
     <!-- Navigation -->
     <nav id="mainNav"
-        class="fixed top-0 left-0 w-full z-50 px-4 md:px-8 py-2 flex justify-between items-center bg-gradient-to-b from-black/90 to-transparent transition-all duration-300">
+        class="fixed top-0 left-0 w-full z-50 px-4 md:px-8 py-2 flex justify-between items-center bg-gray-900 from-black/90 to-transparent transition-all duration-300">
         <div class="flex items-center gap-2 z-50">
             <a href="#homePage" rel="noopener noreferrer">
                 <img src="../images/CamFlix-Logo.png" alt="camflix Logo" class="h-12 w-auto object-contain">
@@ -147,13 +148,13 @@
 
     <!-- Main Content -->
         <!-- Hero / masthead -->
-    <main class="bg-gray-900 text-gray-50 flex-1 pt-24">
+    <main class=" dark:bg-background text-gray-800 dark:text-[#EEF2FF] flex-1 pt-24 font-type">
 
         
         <section id="movie-details" class="mt-[25px]" aria-labelledby="details-heading">
             <div class="max-w-6xl mx-auto px-6">
                 <div class="relative flex flex-col align-items-center lg:flex-row items-start gap-8 lg:gap-12">
-                    <figure class="flex media-container items-center flex-shrink-0 relative w-[600px] h-[500px]">
+                    <figure class="flex media-container items-center flex-shrink-0 relative h-[400px] md:h-[450px] lg:h-[500px] w-full lg:w-[600px]">
                     <div id="poster-loader"
                         class="absolute inset-0 rounded-2xl shadow-lg bg-gradient-to-br from-gray-700 to-gray-900 animate-pulse">
                     </div>
@@ -175,10 +176,10 @@
                     </figure>
 
                     
-                    <article class="flex-1 space-y-4">
+                    <article class="flex-1 space-y-4 ">
                         <header class="space-y-2">
                             <p class="text-sm uppercase tracking-[0.3em] text-gray-400" id="details-heading">Movie overview</p>
-                            <h1 id="movie-title" class="text-4xl lg:text-5xl font-bold">Loading title...</h1>
+                            <h4 id="movie-title" class="sm:text-2xl lg:text-4xl font-bold">Loading title...</h4>
                         </header>
                         
                         <dl class="space-y-4">
@@ -203,7 +204,7 @@
                                 <i class="fa-solid fa-layer-group text-lg"></i>
                                 <h2 class="font-semibold text-xl">Overview</h2>
                             </div>
-                            <p id="movie-overview" class="text-lg text-justify leading-relaxed">
+                            <p id="movie-overview" class="text-lg text-justify leading-relaxed indent-8">
                                 Loading storyline...
                             </p>
                         </section>
@@ -225,7 +226,7 @@
                                     <i class="fa-regular fa-star"></i>
                                     <i class="fa-regular fa-star"></i>
                                 </div>
-                                <p id="rating-label" class="text-sm text-gray-300">Rating --/5</p>
+                                <p id="rating-label" class="text-sm pt-1">Rating --/5</p>
                             </div>
                         </section>
                         
@@ -244,7 +245,7 @@
         <section class="py-12" id="cast" aria-labelledby="cast-heading">
             <div class="max-w-6xl mx-auto px-6">
                 <div class="flex items-center justify-between mb-8">
-                    <h2 id="cast-heading" class="text-3xl font-bold">Actors and Actresses</h2>
+                    <h2 id="cast-heading" class="text-lg xs:text-xl sm:text-2xl font-bold">Actors and Actresses</h2>
                     <p class="text-sm text-gray-400">Top billed actors</p>
                 </div>
                 <div class="w-full overflow-x-auto pb-6">
@@ -255,7 +256,7 @@
                         <div class="relative w-full h-full rounded-2xl overflow-hidden bg-gray-800">
                             <img class="w-full h-full object-cover actor-image" src="https://placehold.co/256x384?text=No+Photo" alt="Actor">
                             <div class="absolute bottom-0 left-0 right-0 backdrop-blur-md bg-black/40 p-4 text-center">
-                                <p class="font-medium text-xl actor-name">Actor name</p>
+                                <p class="font-bold text-xl actor-name text-white">Actor name</p>
                                 <p class="text-gray-300 actor-role">Character</p>
                             </div>
                         </div>
@@ -267,13 +268,13 @@
         <section class="py-12" id="related" aria-labelledby="related-heading">
             <div class="max-w-6xl mx-auto px-6">
                 <div class="flex justify-between items-center mb-8">
-                    <h2 id="related-heading" class="text-3xl font-bold">Recommended Movies</h2>
-                    <a href="./explored.html" class="text-sky-400 hover:text-sky-300 text-lg font-medium transition duration-200">
-                        See All
+                    <h2 id="related-heading" class="text-lg xs:text-2xl sm:text-2xl font-bold">Recommended Movies</h2>
+                    <a href="./explored.html" class="text-blue-500 text-sm hover:underline">
+                        See more
                     </a>
                 </div>
                 
-                <div id="related-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+                <div id="related-grid" class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-6"></div>
 
                 <template id="related-card-template">
                 <div class="group cursor-pointer movie-card" data-movie-id="">
@@ -285,7 +286,7 @@
                         <h3 class="font-semibold truncate movie-title"></h3>
                         <span class="text-yellow-400 flex items-center gap-1"><i class="fa-solid fa-star"></i> <span class="movie-rating"></span></span>
                     </div>
-                    <div class="flex items-center text-xs text-gray-400 gap-2 mt-1">
+                    <div class="flex items-center text-sm text-gray-400 dark:text-[#acafb5] gap-2 mt-1">
                         <span class="movie-genre"></span>
                     </div>
                 </div>

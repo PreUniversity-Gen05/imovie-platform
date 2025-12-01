@@ -95,7 +95,7 @@ function renderStars(rating) {
 async function fetchCast() {
     const res = await fetch(`${BASE_URL}${movieId}/credits?api_key=${API_KEY}`);
     const data = await res.json();
-    renderCast(data.cast.slice(0, 10));
+    renderCast(data.cast.slice(0, 15));
 }
 
 function renderCast(castList) {
@@ -119,7 +119,7 @@ function renderCast(castList) {
 async function fetchRecommended() {
     const res = await fetch(`${BASE_URL}${movieId}/recommendations?api_key=${API_KEY}`);
     const data = await res.json();
-    renderRecommended(data.results.slice(0, 8));
+    renderRecommended(data.results.slice(0, 10));
 }
 
 function renderRecommended(movies) {
