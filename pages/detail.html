@@ -214,10 +214,76 @@
                                 <i class="fa-regular fa-heart text-2xl mb-1"></i>
                                 <p class="text-sm">Favorite</p>
                             </div> -->
-                            <div class="text-center">
+                            <div id="shareBtn" class="text-center cursor-pointer">
                                 <i class="fa-solid fa-share-nodes text-2xl mb-1"></i>
                                 <p class="text-sm">Share</p>
                             </div>
+
+    <!-- SHARE BUTTON -->
+            <!-- POPUP OVERLAY -->
+                        <div id="popupOverlay" class="hidden fixed inset-0 bg-black/60 flex justify-center items-center">
+
+                        <!-- POPUP BOX -->
+                        <div class="bg-white rounded-xl p-6 w-80 relative shadow-lg">
+
+                            <!-- CLOSE BUTTON -->
+                            <button id="closePopup" 
+                                    class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">
+                            &times;
+                            </button>
+
+                            <h3 class="text-xl font-semibold mb-4 text-center">Share this page</h3>
+
+                            <!-- LINK BOX -->
+                            <div class="mb-4">
+                            <label class="text-sm font-medium">Page Link:</label>
+                            <input id="shareLinkBox"
+                                    type="text" readonly
+                                    class="w-full mt-1 p-2 border rounded-lg bg-gray-100">
+                            </div>
+
+                            <!-- COPY BUTTON -->
+                            <button id="copyLinkBtn" 
+                                    class="w-full mb-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-black transition">
+                            Copy Link
+                            </button>
+
+                            <!-- SHARE ICONS -->
+                            <div class="grid grid-cols-1 gap-3">
+
+                            <!-- Facebook -->
+                            <a id="facebookShare" target="_blank"
+                                class="flex items-center gap-3 p-2 border rounded-lg hover:bg-gray-100 transition">
+
+                                <img src="../Images/facebook-logo.jpg" 
+                                class="w-12 h-12 object-cover rounded-full" alt="Facebook">
+
+                                <span class="font-medium">Share on Facebook</span>
+                            </a>
+
+                            <!-- Telegram -->
+                            <a id="telegramShare" target="_blank"
+                                class="flex items-center gap-3 p-2 border rounded-lg hover:bg-gray-100 transition">
+
+                                <img src="../Images/telegram-logo.jpg" 
+                                class="w-12 h-12 object-cover rounded-full" alt="Telegram">
+
+                                <span class="font-medium">Share on Telegram</span>
+                            </a>
+
+                            <!-- LinkedIn -->
+                            <a id="linkedinShare" target="_blank"
+                                class="flex items-center gap-3 p-2 border rounded-lg hover:bg-gray-100 transition">
+
+                                <img src="../Images/linkedIn.jpg" 
+                                class="w-12 h-12 object-cover rounded-full" alt="LinkedIn">
+
+                                <span class="font-medium">Share on LinkedIn</span>
+                            </a>
+
+                            </div>
+                        </div>
+                        </div>
                             <div class="text-center">
                                 <div id="rating-stars" class="text-amber-400 text-xl mb-1">
                                     <i class="fa-regular fa-star"></i>
@@ -413,9 +479,64 @@
         });
     </script>
 
+    <!-- script for share button -->
+    <script>
+        const shareBtn = document.getElementById("shareBtn");
+        const popupOverlay = document.getElementById("popupOverlay");
+        const closePopup = document.getElementById("closePopup");
 
+        const linkBox = document.getElementById("shareLinkBox");
+        const copyBtn = document.getElementById("copyLinkBtn");
 
+        shareBtn.addEventListener("click", () => {
+        const url = window.location.href;
+        const encodedURL = encodeURIComponent(url);
 
+        // Put URL into input box
+        linkBox.value = url;
+
+        // Update share URLs
+        document.getElementById("facebookShare").href =
+            `https://www.facebook.com/sharer/sharer.php?u=${encodedURL}`;
+
+        document.getElementById("telegramShare").href =
+            `https://t.me/share/url?url=${encodedURL}`;
+
+        document.getElementById("linkedinShare").href =
+            `https://www.linkedin.com/shareArticle?mini=true&url=${encodedURL}`;
+
+        popupOverlay.classList.remove("hidden");
+        });
+
+        // Close popup
+        closePopup.addEventListener("click", () => {
+        popupOverlay.classList.add("hidden");
+        });
+
+        // Close when clicking outside
+        popupOverlay.addEventListener("click", (e) => {
+        if (e.target === popupOverlay) {
+            popupOverlay.classList.add("hidden");
+        }
+        });
+
+        // Copy link button
+        copyBtn.addEventListener("click", () => {
+        navigator.clipboard.writeText(linkBox.value);
+        //   alert("Link copied!");
+        });
+    </script>
+
+    <!-- Small smooth fade in animation -->
+    <style>
+        @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+        }
+        .animate-fadeIn {
+        animation: fadeIn 0.25s ease;
+        }
+    </style>
     <script src="../js/detail_script.js" defer></script>
 </body>
 
