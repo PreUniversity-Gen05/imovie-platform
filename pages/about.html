@@ -94,11 +94,10 @@
 
 </head>
 
-<body id="homePage"
-    class="bg-background-light dark:text-background-light dark:bg-background text-white font-sans antialiased overflow-x-hidden">
+<body id="homePage" class="bg-background-light dark:bg-background text-gray-800 dark:text-white font-sans antialiased overflow-x-hidden">
     <!-- Navigation -->
     <nav id="mainNav"
-        class="fixed top-0 left-0 w-full z-50 px-4 md:px-8 py-2 flex justify-between items-center bg-gradient-to-b from-black/90 to-transparent transition-all duration-300">
+        class="fixed top-0 bg-gray-900 opacity-75 left-0 w-full z-50 px-4 md:px-8 py-2 flex justify-between items-center bg-gradient-to-b from-black/90 to-transparent transition-all duration-300">
         <div class="flex items-center gap-2 z-50">
             <a href="../index.html" rel="noopener noreferrer">
                 <img src="../images/CamFlix-Logo.png" alt="camflix Logo" class="h-12 w-auto object-contain">
@@ -108,7 +107,7 @@
         <!-- Desktop Search Bar -->
         <div
             class="hidden md:flex items-center bg-white/10 backdrop-blur-md rounded-full px-4 py-2 flex-1 max-w-md mx-6 xl:w-96 border border-white/10 focus-within:border-primary transition-colors">
-            <a href="search.html" class=" flex "> <i class="fa-solid fa-search text-gray-400 mr-3"></i>
+            <a href="search.html" class=" flex "> <i class="fa-solid fa-search text-gray-400 mr-3 pt-1"></i>
             <input type="text" placeholder="Search movies..."
                 class="bg-transparent border-none outline-none text-sm w-full text-white placeholder-gray-400 focus:ring-0"></a>
         </div>
@@ -123,7 +122,7 @@
                 </svg>
             </a>
             <button id="theme-toggle" 
-                class="p-1 rounded-full bg-white dark:bg-gray-800 text-black dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition shadow-lg">
+                class="p-1 rounded-full bg-white dark:bg-gray-900 text-black dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition shadow-lg">
 
                 <!-- Moon icon (show in LIGHT mode) -->
                 <svg id="moon-icon" class="w-5 h-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -152,9 +151,9 @@
         <!-- Close Button (Also handled by main toggle, but visual clarity) -->
 
         <!-- Mobile Search -->
-        <div class="w-3/4 max-w-sm flex items-center bg-white/10 rounded-full px-4 py-3 border border-white/20">
+        <div class="w-3/4 max-w-sm flex items-center rounded-full px-4 py-3 border border-white/20">
             <a href="search.html" class=" flex ">
-                <i class="fa-solid fa-search text-gray-400 mr-3 hover:outline"></i>
+                <i class="fa-solid fa-search text-gray-400 mr-3 pt-1 hover:outline"></i>
             <input type="text" placeholder="Search movies..."
                 class="bg-transparent border-none outline-none text-base w-full text-white placeholder-gray-400">
             </a>
@@ -166,7 +165,7 @@
         <a href="explored.html" class="text-2xl font-bold text-white hover:text-blue-500 focus:text-blue-500 transition"
             onclick="toggleMenu()">Explore</a>
         <button id="theme-toggle-mobile" 
-                class="p-1 rounded-full bg-white dark:bg-gray-800 text-black dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition shadow-lg">
+                class="p-1 rounded-full bg-white dark:bg-gray-900 text-black dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition shadow-lg">
 
                 <!-- Moon icon (show in LIGHT mode) -->
                 <svg id="moon-icon" class="w-5 h-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -227,7 +226,7 @@
             <div class="flex flex-col-reverse lg:flex-row items-center lg:items-center gap-6 lg:gap-12">
                 <!-- info -->
                 <div class=" w-full  lg:flex-1 space-y-4">
-                    <p class="text-base sm:text-lg lg:text-lg leading-relaxed indent-8">
+                    <p class="text-base sm:text-lg lg:text-lg leading-relaxed">
                         ComaFlix is a modern streaming platform with a sleek, Netflix-inspired interface, designed to
                         make discovering and watching your favorite movies and shows effortless. Developed by the
                         Institute of Science and Technology Advanced Development students in 2025. ComaFlix brings
@@ -293,7 +292,7 @@
                                 <p><i class="fa-brands fa-linkedin-in"></i></p>
                                 <p><i class="fa-brands fa-telegram"></i></p>
                                 <p><i class="fa-brands fa-github"></i></p>
-                                <p><i class="fa-regular fa-message"></i></p>
+                                <p><i class="fa-regular fa-envelope"></i></p>
                             </div>
 
                         </div>
@@ -316,7 +315,7 @@
                                 <p><i class="fa-brands fa-linkedin-in"></i></p>
                                 <p><i class="fa-brands fa-telegram"></i></p>
                                 <p><i class="fa-brands fa-github"></i></p>
-                                <p><i class="fa-regular fa-message"></i></p>
+                                <p><i class="fa-regular fa-envelope"></i></p>
                             </div>
                         </div>
                     </div>
@@ -352,7 +351,7 @@
                                 <p><i class="fa-brands fa-linkedin-in"></i></p>
                                 <p><i class="fa-brands fa-telegram"></i></p>
                                 <p><i class="fa-brands fa-github"></i></p>
-                                <p><i class="fa-regular fa-message"></i></p>
+                                <p><i class="fa-regular fa-envelope"></i></p>
                             </div>
 
                         </div>
@@ -375,7 +374,7 @@
                                 <p><i class="fa-brands fa-linkedin-in "></i></p>
                                 <p><i class="fa-brands fa-telegram "></i></p>
                                 <p><i class="fa-brands fa-github "></i></p>
-                                <p><i class="fa-regular fa-message "></i></p>
+                                <p><i class="fa-regular fa-envelope"></i></i></p>
                             </div>
                         </div>
                     </div>
@@ -399,7 +398,7 @@
                                 <p><i class="fa-brands fa-linkedin-in"></i></p>
                                 <p><i class="fa-brands fa-telegram"></i></p>
                                 <p><i class="fa-brands fa-github"></i></p>
-                                <p><i class="fa-regular fa-message"></i></p>
+                                <p><i class="fa-regular fa-envelope"></i></p>
                             </div>
 
                         </div>
@@ -435,7 +434,7 @@
                             <p><i class="fa-brands fa-linkedin-in"></i></p>
                             <p><i class="fa-brands fa-telegram"></i></p>
                             <p><i class="fa-brands fa-github"></i></p>
-                            <p><i class="fa-regular fa-message"></i></p>
+                            <p><i class="fa-regular fa-envelope"></i></p>
                         </div>
 
                     </div>
@@ -457,7 +456,7 @@
                             <p><i class="fa-brands fa-linkedin-in"></i></p>
                             <p><i class="fa-brands fa-telegram"></i></p>
                             <p><i class="fa-brands fa-github"></i></p>
-                            <p><i class="fa-regular fa-message"></i></p>
+                            <p><i class="fa-regular fa-envelope"></i></p>
                         </div>
                     </div>
                 </div>
@@ -480,7 +479,7 @@
                             <p><i class="fa-brands fa-linkedin-in"></i></p>
                             <p><i class="fa-brands fa-telegram"></i></p>
                             <p><i class="fa-brands fa-github"></i></p>
-                            <p><i class="fa-regular fa-message"></i></p>
+                            <p><i class="fa-regular fa-envelope"></i></p>
                         </div>
 
                     </div>
@@ -504,7 +503,7 @@
                             <p><i class="fa-brands fa-linkedin-in "></i></p>
                             <p><i class="fa-brands fa-telegram "></i></p>
                             <p><i class="fa-brands fa-github "></i></p>
-                            <p><i class="fa-regular fa-message "></i></p>
+                            <p><i class="fa-regular fa-envelope"></i></p>
                         </div>
 
                     </div>
@@ -588,7 +587,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12 justify-items-center">
                 <div class="space-y-4">
                     <div class="flex items-center gap">
-                        <a href="index.html" rel="noopener noreferrer">
+                        <a href="../index.html" rel="noopener noreferrer">
                             <img href="../index.html" src="../images/CamFlix-Logo.png" alt="camflix Logo" class="h-16 w-auto object-contain">
                         </a>
                     </div>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CamFlix - Free Movies</title>
+    <title>CamFlix</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./src/output.css">
+    <link rel="icon" href="./images/CamFlix-Logo.png" type="image/png">
 
     <script>
         tailwind.config = {
@@ -105,7 +106,7 @@
         <!-- Desktop Search Bar -->
         <div
             class="hidden md:flex items-center bg-white/10 backdrop-blur-md rounded-full px-4 py-2 flex-1 max-w-md mx-6 xl:w-96 border border-white/10 focus-within:border-primary transition-colors">
-            <a href="./pages/search.html" class="flex"><i class="fa-solid fa-search text-gray-400 mr-3"></i>
+            <a href="./pages/search.html" class="flex"><i class="fa-solid fa-search text-gray-400 mr-3 pt-1"></i>
             <input type="text" placeholder="Search movies..."
                 class="bg-transparent border-none outline-none text-sm w-full text-white placeholder-gray-400 focus:ring-0"></a>
         </div>
@@ -149,8 +150,8 @@
         <!-- Close Button (Also handled by main toggle, but visual clarity) -->
 
         <!-- Mobile Search -->
-        <div class="w-3/4 max-w-sm flex items-center bg-white/10 rounded-full px-4 py-3 border border-white/20">
-            <a href="./pages/search.html" class="flex"> <i class="fa-solid fa-search text-gray-400 mr-3 hover:outline"></i>
+        <div class="w-3/4 max-w-sm flex items-center rounded-full px-4 py-3 border border-white/20">
+            <a href="./pages/search.html" class="flex"> <i class="fa-solid fa-search text-gray-400 mr-3 pt-1 hover:outline"></i>
             <input type="text" placeholder="Search..."
                 class="bg-transparent border-none outline-none text-base w-full text-white placeholder-gray-400"></a>
         </div>
@@ -196,13 +197,19 @@
             </h1>
             <p class="text-text-color mb-8 text-lg md:text-xl font-light max-w-xl mx-auto bg">Stream unlimited movies and TV
                 shows on your phone, tablet, laptop, and TV.</p>
-            <button
+
+            <a href="pages/explored.html">
+                <div class="flex justify-center mt-6">
+                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 md:py-4 rounded-full font-bold transition-all transform hover:scale-105 active:scale-95 flex items-center gap-3 mx-auto shadow-[0_0_20px_rgba(99,102,241,0.5)]">Let's Explore <i class="fa-solid fa-play text-xs outline-1"></i></button>
+                </div>
+            </a>
+            <!-- <button href=".pages/explored.html" type="button"
                 class="group bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 md:py-4 rounded-full font-bold transition-all transform hover:scale-105 active:scale-95 flex items-center gap-3 mx-auto shadow-[0_0_20px_rgba(99,102,241,0.5)]">
                 Let's Explore
-                <span class="bg-white/20 rounded-full w-6 h-6 flex items-center justify-center">
-                    <i class="fa-solid fa-play text-xs"></i>
+                <span href="pages/explored.html" class="bg-white/20 rounded-full w-6 h-6 flex items-center justify-center">
+                     <i class="fa-solid fa-play text-xs"></i>
                 </span>
-            </button>
+            </button> -->
         </div>
     </header>
 

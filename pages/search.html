@@ -6,6 +6,11 @@
     <title>Search Movies</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
     <style>
@@ -14,10 +19,9 @@
            
             transition: all 0.3s;
         }
-        
+        /* Remove translate hover to match index/explore hover (image scale + overlay) */
         .card:hover {
-            transform: translateY(-5px);
-          
+            transform: none;
         }
         
         .line-clamp-1 {
@@ -71,35 +75,57 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 min-h-screen">
+<body class="bg-white dark:bg-gray-900 min-h-screen text-gray-800 dark:text-white">
 
     <!-- Search Container -->
     <div class="container mx-auto px-4 pt-8">
-        <div class="relative w-full max-w-2xl mx-auto">
-            <div class="flex items-center w-full bg-white/10 backdrop-blur-md rounded-full px-6 py-4 border border-white/20 shadow-lg">
-                <i class="fa-solid fa-search text-gray-300 mr-3 text-lg"></i>
-                <input 
-                    type="text" 
-                    id="search-input"
-                    placeholder="Search for movies..." 
-                    class="bg-transparent border-none outline-none text-lg w-full text-white placeholder-gray-300 focus:ring-0"
-                    autocomplete="off"
-                >
-                <button 
-                    id="clear-search" 
-                    class="hidden text-gray-300 hover:text-white ml-3 transition-opacity duration-200"
-                    onclick="clearSearch()"
-                >
-                    <i class="fa-solid fa-times text-xl"></i>
-                </button>
+        <div class="flex items-center gap-4 mb-6">
+            <!-- Back Button -->
+            <a href="../index.html" class="p-2 rounded-full bg-white dark:bg-gray-900 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition" title="Go back">
+                <i class="fa-solid fa-arrow-left text-lg"></i>
+            </a>
+            
+            <!-- Search Bar -->
+            <div class="relative w-full max-w-2xl">
+                <div class="flex items-center outline-2 outline-offset-2 outline-solid opacity-75 w-full outline-gray-300 dark:outline-sky-500 bg-white/10 dark:bg-white/5 backdrop-blur-md rounded-full px-6 py-3 border border-gray-300 dark:border-white/20 shadow-sm">
+                    <i class="fa-solid fa-search text-gray-500 mr-3 text-lg"></i>
+                    <input 
+                        type="text" 
+                        id="search-input"
+                        placeholder="Search for movies..." 
+                        class="bg-transparent border-none outline-none text-lg w-full text-gray-900 dark:text-white placeholder-gray-500 focus:ring-0"
+                        autocomplete="off"
+                    >
+                    <button 
+                        id="clear-search" 
+                        class="hidden text-gray-600 hover:text-gray-400 ml-3 transition-opacity duration-200"
+                        onclick="clearSearch()"
+                    >
+                        <i class="fa-solid fa-times text-xl"></i>
+                    </button>
+                </div>
             </div>
-        </div>
+        <button id="theme-dark-light-toggle" 
+                class="p-1 flex justify-center items-center rounded-full w-[40px] h-[40px] bg-gray-200 dark:bg-gray-800 text-black dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition shadow-sm" title="Toggle dark/light mode">
+
+                <!-- Moon icon (show in LIGHT mode) -->
+                <svg id="moon-icon" class="w-7 h-5 dark:hidden rounded" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                </svg>
+
+                <!-- Sun icon (show in DARK mode) -->
+                <svg id="sun-icon" class="w-7 h-5 hidden dark:block rounded" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+        </button>
     </div>
 
     <!-- Movies Grid -->
-    <div id="movies-container" class="container mx-auto px-4 py-8">
-        <h2 id="section-title" class="text-2xl font-bold text-white mb-6 text-center md:text-left">
-            <span id="title-text">Popular Movies</span>
+    <div id="movies-container" class="container mx-auto px-4 py-8 dark:bg-gray-900">
+        <h2 id="section-title" class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center md:text-left">
+            <span id="title-text">Popular Search</span>
             <span id="search-count" class="text-sm font-normal text-gray-400 ml-2 hidden"></span>
         </h2>
         
@@ -112,15 +138,10 @@
         <div id="movies-grid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
             <!-- Movies will load here dynamically -->
         </div>
-        
+
         <!-- Load More Button -->
-        <div id="load-more-container" class="text-center mt-10">
-            <button 
-                id="load-more" 
-                class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hidden"
-            >
-                <i class="fa-solid fa-plus mr-2"></i> Load More
-            </button>
+        <div class="hidden flex justify-center mt-6">
+            <button id="load-more-btn" class="hidden bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-full">Load more</button>
         </div>
         
         <!-- No Results Message -->
@@ -142,14 +163,13 @@
 
         // DOM Elements
         const moviesGrid = document.getElementById("movies-grid");
-        const loadMoreBtn = document.getElementById("load-more");
         const searchInput = document.getElementById("search-input");
         const clearSearchBtn = document.getElementById("clear-search");
         const sectionTitle = document.getElementById("title-text");
         const searchCount = document.getElementById("search-count");
-        const loadMoreContainer = document.getElementById("load-more-container");
         const noResultsDiv = document.getElementById("no-results");
         const loadingSkeleton = document.getElementById("loading-skeleton");
+        const loadMoreBtn = document.getElementById("load-more-btn");
 
         // Initialize with popular movies
         fetchPopularMovies();
@@ -225,7 +245,7 @@
                 .then(res => res.json())
                 .then(data => {
                     hideLoadingSkeleton();
-                    sectionTitle.textContent = "Popular Movies";
+                    sectionTitle.textContent = "Popular Search";
                     searchCount.classList.add('hidden');
                     
                     if (!append) {
@@ -299,7 +319,9 @@
             
             movies.forEach(movie => {
                 const card = document.createElement("div");
-                card.classList.add("card", "dark:text-white", "text-black");
+                // match index/explore card classes so group-hover works
+                card.classList.add("group", "card", "movie-card", "cursor-pointer", "dark:text-white", "text-black");
+                card.dataset.movieId = movie.id;
                 
                 // Format release date
                 let releaseDate = "N/A";
@@ -313,25 +335,25 @@
                     ? imageBaseURL + movie.poster_path
                     : 'https://via.placeholder.com/291x376?text=No+Poster';
                 
-                card.innerHTML = `
-         
-              <div>
-                 <div class="relative aspect-2/3 rounded-xl overflow-hidden mb-3">
-                <img src="${imageBaseURL + movie.poster_path}" class="w-full min-h-70 object-cover group-hover:scale-110 transition duration-300">
-                <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition"></div>
-            </div>
-              </div>
-              <div class="mt-2 mb-2 flex justify-around items-start">
-                <div>
-                  <span class="font-semibold text-[20px] line-clamp-1">${movie.title}</span>
-                  <p class="text-[16px]">Release: ${movie.release_date}</p>
-                </div>
-                <span class="text-[18px] mt-1 flex items-center gap-1.5 text-yellow-400">
-                  <i class="fa-solid fa-star"></i>
-                  <span>${movie.vote_average}</span>
-                </span>
-              </div>
-            `;
+                                card.innerHTML = `
+                            <div class="relative aspect-2/3 rounded-xl overflow-hidden mb-3">
+                                <img src="${movie.poster_path ? imageBaseURL + movie.poster_path : posterUrl}" class="w-full min-h-70 object-cover group-hover:scale-110 transition duration-300" alt="${movie.title}">
+                                <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition"></div>
+                            </div>
+                            <div class="flex place-content-between">
+                                <h3 class="font-bold text-gray-800 dark:text-[#EEF2FF] text-[20px] truncate movie-title">${movie.title}</h3>
+                                <span class="text-yellow-400 flex items-center gap-1"><i class="fa-solid fa-star"></i> <span class="movie-rating">${movie.vote_average?.toFixed(1) ?? 'N/A'}</span></span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500 dark:text-[#acafb5] gap-2 mt-1">
+                                <span class="movie-genre">${releaseDate}</span>
+                            </div>
+                        `;
+                // Navigate to detail page when card is clicked
+                card.addEventListener('click', () => {
+                    // Use pages/detail.html path to match site structure
+                    window.location.href = `./detail.html?movieId=${movie.id}`;
+                });
+
             moviesGrid.appendChild(card);
             });
         }
@@ -389,5 +411,69 @@
             searchInput.focus();
         });
     </script>
+
+    <!-- Script for dark mode on mobile menu -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const toggleButton = document.getElementById("theme-dark-light-toggle");
+        const html = document.documentElement;
+
+    // Load saved theme
+    if (localStorage.getItem("theme") === "dark") {
+        html.classList.add("dark");
+    }
+
+    // Toggle
+    toggleButton.addEventListener("click", () => {
+        html.classList.toggle("dark");
+
+        // Save theme
+        localStorage.setItem("theme",
+            html.classList.contains("dark") ? "dark" : "light"
+            );
+        });
+    });
+    </script>
+
+    <!-- Scripts for mobile menu -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('menu-closed');
+                mobileMenu.classList.add('menu-open');
+                // Change icon to X
+                menuBtn.innerHTML = '<i class="fa-solid fa-xmark text-2xl"></i>';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            } else {
+                mobileMenu.classList.remove('menu-open');
+                mobileMenu.classList.add('menu-closed');
+                // Change icon back to bars
+                menuBtn.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>';
+                document.body.style.overflow = ''; // Enable scrolling
+            }
+        }
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Background navigation on scroll
+        // Scroll Event Listener
+        window.addEventListener('scroll', () => {
+            const mainNav = document.getElementById('mainNav');
+
+            if (window.scrollY > 50) {
+                mainNav.classList.remove('bg-gradient-to-b', 'from-black/90', 'to-transparent');
+                mainNav.classList.add('bg-black/40', 'backdrop-blur-md', 'border-b', 'border-white/10', 'shadow-lg');
+            } else {
+                // AT THE TOP: Reset to original
+                mainNav.classList.remove('bg-black/40', 'backdrop-blur-md', 'border-b', 'border-white/10', 'shadow-lg');
+                mainNav.classList.add('bg-gradient-to-b', 'from-black/90', 'to-transparent');
+            }
+        });
+    </script>
+
 </body>
 </html>

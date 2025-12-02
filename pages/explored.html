@@ -18,6 +18,7 @@
 
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -87,10 +88,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
 
 
-<body id="homePage" class=" dark:bg-background bg-white text-white font-sans antialiased overflow-x-hidden">
+<body id="homePage" class="bg-white dark:bg-[#101828] text-gray-800 dark:text-white font-sans antialiased overflow-x-hidden">
     <!-- Navigation -->
     <nav id="mainNav"
-        class="fixed top-0 left-0 w-full z-50 px-4 md:px-8 py-2 flex justify-between items-center bg-gradient-to-b from-black/90 to-transparent transition-all duration-300">
+        class="fixed top-0 left-0 w-full z-50 px-4 md:px-8 py-2 flex justify-between items-center from-black/90 to-transparent transition-all duration-300">
         <div class="flex items-center gap-2 z-50">
             <a href="../index.html" rel="noopener noreferrer">
                 <img src="../images/CamFlix-Logo.png" alt="camflix Logo" class="h-12 w-auto object-contain">
@@ -100,26 +101,33 @@
         <!-- Desktop Search Bar -->
         <div
             class="hidden md:flex items-center bg-white/10 backdrop-blur-md rounded-full px-4 py-2 flex-1 max-w-md mx-6 xl:w-96 border border-white/10 focus-within:border-primary transition-colors">
-            <a href="search.html" class="flex">
-            <i class="fa-solid fa-search text-gray-400 mr-3"></i>
+            <a href="search.html" class=" flex "> <i class="fa-solid fa-search text-gray-400 mr-3 pt-1"></i>
             <input type="text" placeholder="Search movies..."
                 class="bg-transparent border-none outline-none text-sm w-full text-white placeholder-gray-400 focus:ring-0"></a>
         </div>
 
         <!-- Desktop Navigation Links -->
         <div class="hidden md:flex items-center gap-6 text-sm font-medium">
-            <a href="../index.html" class="text-gray-300 hover:text-primary transition">Home</a>
-            <a href="about.html" class="text-gray-300 hover:text-primary transition">About us</a>
-            <a href="explored.html" class="text-gray-300 hover:text-primary transition flex items-center gap-1 whitespace-nowrap">Let's Explore 
+            <!-- <a href="#homePage" class="text-gray-300 hover:text-blue-500 focus:text-blue-500 transition">Home</a> -->
+            <a href="about.html" class="text-gray-300 hover:text-blue-500 focus:text-blue-500 transition">About us</a>
+            <a href="explored.html" class="text-gray-300 hover:text-blue-500 focus:text-blue-500 transition flex items-center gap-1 whitespace-nowrap">Let's Explore 
                 <svg class="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
             </a>
-            <!-- <i class="fa-solid fa-sun fa-lg"></i> -->
-            <button id="theme-toggle" class="p-1 rounded-full bg-white text-black hover:bg-gray-200 transition shadow-lg">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            <button id="theme-toggle" 
+                class="p-1 rounded-full bg-white dark:bg-gray-900 text-black dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition shadow-lg">
+
+                <!-- Moon icon (show in LIGHT mode) -->
+                <svg id="moon-icon" class="w-5 h-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                </svg>
+
+                <!-- Sun icon (show in DARK mode) -->
+                <svg id="sun-icon" class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
             </button>
         </div>
@@ -130,6 +138,42 @@
         </button>
     </nav>
 
+    <!-- Mobile Full Screen Menu -->
+    <div id="mobile-menu"
+        class="fixed right-0 top-16 w-full bg-dark/90 backdrop-blur-xl z-40 flex flex-col items-start space-y-4 p-6 
+           rounded-xl shadow-xl menu-closed md:hidden transition-all duration-300">
+        <!-- Close Button (Also handled by main toggle, but visual clarity) -->
+
+        <!-- Mobile Search -->
+        <div class="w-3/4 max-w-sm flex items-center rounded-full px-4 py-3 border border-white/20">
+            <a href="search.html" class=" flex ">
+                <i class="fa-solid fa-search text-gray-400 mr-3 pt-1 hover:outline"></i>
+            <input type="text" placeholder="Search movies..."
+                class="bg-transparent border-none outline-none text-base w-full text-white placeholder-gray-400">
+            </a>
+            
+        </div>
+        <a href="../index.html" class="text-2xl font-bold text-white hover:text-blue-500 focus:text-blue-500 transition" onclick="toggleMenu()">Home</a>
+        <a href="about.html" class="text-2xl font-bold text-white hover:text-blue-500 focus:text-blue-500 transition" onclick="toggleMenu()">About
+            us</a>
+        <a href="explored.html" class="text-2xl font-bold text-white hover:text-blue-500 focus:text-blue-500 transition"
+            onclick="toggleMenu()">Explore</a>
+        <button id="theme-toggle-mobile" 
+                class="p-1 rounded-full bg-white dark:bg-gray-900 text-black dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition shadow-lg">
+
+                <!-- Moon icon (show in LIGHT mode) -->
+                <svg id="moon-icon" class="w-5 h-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                </svg>
+
+                <!-- Sun icon (show in DARK mode) -->
+                <svg id="sun-icon" class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+        </button>
+    </div>
 
 
 <!-- Main content -->
@@ -141,25 +185,25 @@
     <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
       <img src="https://cdnb.artstation.com/p/assets/images/images/053/000/821/large/sonu-avtar-title.jpg?1661189157"
            class="absolute w-full h-full object-cover inset-0" alt="Movie 1">
-      <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+      <div class="absolute inset-0 from-black via-transparent to-transparent opacity-80"></div>
     </div>
     <!-- Slide 2 -->
     <div class="hidden duration-700 ease-in-out" data-carousel-item>
       <img src="https://i.pinimg.com/1200x/a9/86/b7/a986b74c0f5afa489f2b96646f6bdadf.jpg"
            class="absolute w-full h-full object-cover inset-0" alt="Movie 2">
-      <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+      <div class="absolute inset-0 from-black via-transparent to-transparent opacity-80"></div>
     </div>
     <!-- Slide 3 -->
     <div class="hidden duration-700 ease-in-out" data-carousel-item>
       <img src="https://i.pinimg.com/1200x/03/cf/74/03cf7419e7fa8c3983938d6760ae2652.jpg"
            class="absolute w-full h-full object-cover inset-0" alt="Movie 3">
-      <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+      <div class="absolute inset-0 from-black via-transparent to-transparent opacity-80"></div>
     </div>
     <!-- Slide 4 -->
     <div class="hidden duration-700 ease-in-out" data-carousel-item>
       <img src="https://i.pinimg.com/1200x/29/3a/52/293a528d8963f23abd99aaadf22beff3.jpg"
            class="absolute w-full h-full object-cover inset-0" alt="Movie 3">
-      <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+      <div class="absolute inset-0 from-black via-transparent to-transparent opacity-80"></div>
     </div>
   </div>
 
@@ -195,7 +239,7 @@
     </p>
  
     <!-- Content Section -->
-    <div id="explored-container" class="dark:bg-background mt-3 text-gray-800 font-type dark:text-text-color backdrop-blur-md">
+    <div id="explored-container" class="bg-white dark:bg-[#101828] mt-3 text-gray-800 font-type dark:text-white backdrop-blur-md">
     </div>
 
     <template id="movie-card-template-explored">
@@ -215,11 +259,11 @@
     </template>
 
 
-    <div class="flex items-center justify-between border-t border-white/10 px-4 py-3 sm:px-6 dark:bg-background  mt-10">
+    <div class="flex items-center justify-between border-t border-white/10 px-4 py-3 sm:px-6 bg-white dark:bg-[#101828]  mt-10">
 
-        <div class="hidden xs:flex sm:flex sm:flex-1 sm:items-center sm:justify-between text-text-color-light dark:text-[#EEF2FF]">
-            <div>
-            <p id="pagination-info" class="text-sm xs:text-xs text-text-color-light dark:text-[#EEF2FF]">
+            <div class="flex flex-col xs:flex-row sm:flex sm:flex-1 sm:items-center sm:justify-between text-gray-800 dark:text-white">
+                <div class="mb-3 xs:mb-0">
+                <p id="pagination-info" class="text-sm xs:text-xs text-gray-800 dark:text-white">
                 Showing
                 <span class="font-medium">1</span>
                 to
@@ -360,51 +404,6 @@
         </div>
     </footer>
 
-
-
-
-
-    <!-- Scripts -->
-    <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        let isMenuOpen = false;
-
-        function toggleMenu() {
-            isMenuOpen = !isMenuOpen;
-            if (isMenuOpen) {
-                mobileMenu.classList.remove('menu-closed');
-                mobileMenu.classList.add('menu-open');
-                // Change icon to X
-                menuBtn.innerHTML = '<i class="fa-solid fa-xmark text-2xl"></i>';
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
-            } else {
-                mobileMenu.classList.remove('menu-open');
-                mobileMenu.classList.add('menu-closed');
-                // Change icon back to bars
-                menuBtn.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>';
-                document.body.style.overflow = ''; // Enable scrolling
-            }
-        }
-        menuBtn.addEventListener('click', toggleMenu);
-
-        // Background navigation on scroll
-        // Scroll Event Listener
-        window.addEventListener('scroll', () => {
-            const mainNav = document.getElementById('mainNav');
-
-            if (window.scrollY > 50) {
-                mainNav.classList.remove('bg-gradient-to-b', 'from-black/90', 'to-transparent');
-                mainNav.classList.add('bg-black/40', 'backdrop-blur-md', 'border-b', 'border-white/10', 'shadow-lg');
-            } else {
-                // AT THE TOP: Reset to original
-                mainNav.classList.remove('bg-black/40', 'backdrop-blur-md', 'border-b', 'border-white/10', 'shadow-lg');
-                mainNav.classList.add('bg-gradient-to-b', 'from-black/90', 'to-transparent');
-            }
-        });
-    </script>
-
-
     <!-- Script for explore movie -->
     <script>
         
@@ -488,6 +487,92 @@
         }
 
       })();
+    </script>
+
+        <!-- Script for dark mode -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleButton = document.getElementById("theme-toggle");
+            const html = document.documentElement;
+
+        // Load saved theme
+        if (localStorage.getItem("theme") === "dark") {
+            html.classList.add("dark");
+        }
+
+        // Toggle
+        toggleButton.addEventListener("click", () => {
+            html.classList.toggle("dark");
+
+            // Save theme
+            localStorage.setItem("theme",
+                html.classList.contains("dark") ? "dark" : "light"
+                );
+            });
+        });
+    </script>
+
+    <!-- Script for dark mode on mobile menu -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const toggleButton = document.getElementById("theme-toggle-mobile");
+        const html = document.documentElement;
+
+    // Load saved theme
+    if (localStorage.getItem("theme") === "dark") {
+        html.classList.add("dark");
+    }
+
+    // Toggle
+    toggleButton.addEventListener("click", () => {
+        html.classList.toggle("dark");
+
+        // Save theme
+        localStorage.setItem("theme",
+            html.classList.contains("dark") ? "dark" : "light"
+            );
+        });
+    });
+    </script>
+
+    <!-- Scripts for mobile menu -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('menu-closed');
+                mobileMenu.classList.add('menu-open');
+                // Change icon to X
+                menuBtn.innerHTML = '<i class="fa-solid fa-xmark text-2xl"></i>';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            } else {
+                mobileMenu.classList.remove('menu-open');
+                mobileMenu.classList.add('menu-closed');
+                // Change icon back to bars
+                menuBtn.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>';
+                document.body.style.overflow = ''; // Enable scrolling
+            }
+        }
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Background navigation on scroll
+        // Scroll Event Listener
+        window.addEventListener('scroll', () => {
+            const mainNav = document.getElementById('mainNav');
+
+            if (window.scrollY > 50) {
+                mainNav.classList.remove('bg-gradient-to-b', 'from-black/90', 'to-transparent');
+                mainNav.classList.add('bg-black/40', 'backdrop-blur-md', 'border-b', 'border-white/10', 'shadow-lg');
+            } else {
+                // AT THE TOP: Reset to original
+                mainNav.classList.remove('bg-black/40', 'backdrop-blur-md', 'border-b', 'border-white/10', 'shadow-lg');
+                mainNav.classList.add('bg-gradient-to-b', 'from-black/90', 'to-transparent');
+            }
+        });
     </script>
 
 

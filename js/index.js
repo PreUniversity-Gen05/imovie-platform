@@ -41,10 +41,12 @@ function renderPopularMovie(movie) {
 
     // Trailer button
     const buttonPopularTrailer = document.getElementById("popular-banner-trailer");
-    buttonPopularTrailer.addEventListener('click', () => {
-    // Open the trailer link in a new tab
-    window.location.href = 'http://127.0.0.1:5500/pages/detail.html?movieId=803796';
-});
+    if (buttonPopularTrailer) {
+        buttonPopularTrailer.addEventListener('click', () => {
+            // Navigate to the detail page under pages/
+            window.location.href = `./pages/detail.html?movieId=${movie.id}`;
+        });
+    }
 }
 
 
@@ -90,9 +92,12 @@ function renderTopRatingMovie(movie) {
 
     // Trailer button
     const buttonTopRateTrailer = document.getElementById("topRate-banner-trailer");
-    buttonTopRateTrailer.onclick = () => {
-        window.location.href = `./detail.html?movieId=${movie.id}`;
-    };
+    if (buttonTopRateTrailer) {
+        buttonTopRateTrailer.addEventListener('click', () => {
+            // Navigate to the detail page under pages/
+            window.location.href = `./pages/detail.html?movieId=${movie.id}`;
+        });
+    }
 }
 
 // Start
