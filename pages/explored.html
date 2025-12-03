@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CamFlix - Expplored</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700;800&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" href="../images/CamFlix-Logo.png" type="image/png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans"', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#6366F1', // Indigo 500
+                        dark: '#0B0D17',
+                        card: '#151926',
+                        accent: '#6366F1'
+                    },
+                    screens: {
+                        'xs': '475px',
+                        // default tailwind breakpoints: sm: 640px, md: 768px, lg: 1024px, xl: 1280px
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar to match the dark theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0B0D17;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+
+        .menu-closed {
+            transform: translateY(-100%);
+            /* Moves it UP above the screen */
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .menu-open {
+            transform: translateY(0);
+            /* Slides DOWN to natural position */
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../src/output.css">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
+
+
+<body id="homePage" class="bg-white dark:bg-[#101828] text-gray-800 dark:text-white font-sans antialiased overflow-x-hidden">
+    <!-- Navigation -->
+    <nav id="mainNav"
+        class="fixed top-0 left-0 w-full z-50 px-4 md:px-8 py-2 flex justify-between items-center from-black/90 to-transparent transition-all duration-300">
+        <div class="flex items-center gap-2 z-50">
+            <a href="../index.html" rel="noopener noreferrer">
+                <img src="../images/CamFlix-Logo.png" alt="camflix Logo" class="h-12 w-auto object-contain">
+            </a>
+        </div>
+
+        <!-- Desktop Search Bar -->
+        <div
+            class="hidden md:flex items-center bg-white/10 backdrop-blur-md rounded-full px-4 py-2 flex-1 max-w-md mx-6 xl:w-96 border border-white/10 focus-within:border-primary transition-colors">
+            <a href="search.html" class=" flex "> <i class="fa-solid fa-search text-gray-400 mr-3 pt-1"></i>
+            <input type="text" placeholder="Search movies..."
+                class="bg-transparent border-none outline-none text-sm w-full text-white placeholder-gray-400 focus:ring-0"></a>
+        </div>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+            <!-- <a href="#homePage" class="text-gray-300 hover:text-blue-500 focus:text-blue-500 transition">Home</a> -->
+            <a href="about.html" class="text-gray-300 hover:text-blue-500 focus:text-blue-500 transition">About us</a>
+            <a href="explored.html" class="text-gray-300 hover:text-blue-500 focus:text-blue-500 transition flex items-center gap-1 whitespace-nowrap">Let's Explore 
+                <svg class="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+            <button id="theme-toggle" 
+                class="p-1 rounded-full bg-white dark:bg-gray-900 text-black dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition shadow-lg">
+
+                <!-- Moon icon (show in LIGHT mode) -->
+                <svg id="moon-icon" class="w-5 h-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                </svg>
+
+                <!-- Sun icon (show in DARK mode) -->
+                <svg id="sun-icon" class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="menu-btn" class="md:hidden z-50 text-white focus:outline-none p-2">
+            <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Full Screen Menu -->
+    <div id="mobile-menu"
+        class="fixed right-0 top-16 w-full bg-dark/90 backdrop-blur-xl z-40 flex flex-col items-start space-y-4 p-6 
+           rounded-xl shadow-xl menu-closed md:hidden transition-all duration-300">
+        <!-- Close Button (Also handled by main toggle, but visual clarity) -->
+
+        <!-- Mobile Search -->
+        <div class="w-3/4 max-w-sm flex items-center rounded-full px-4 py-3 border border-white/20">
+            <a href="search.html" class=" flex ">
+                <i class="fa-solid fa-search text-gray-400 mr-3 pt-1 hover:outline"></i>
+            <input type="text" placeholder="Search movies..."
+                class="bg-transparent border-none outline-none text-base w-full text-white placeholder-gray-400">
+            </a>
+            
+        </div>
+        <a href="../index.html" class="text-2xl font-bold text-white hover:text-blue-500 focus:text-blue-500 transition" onclick="toggleMenu()">Home</a>
+        <a href="about.html" class="text-2xl font-bold text-white hover:text-blue-500 focus:text-blue-500 transition" onclick="toggleMenu()">About
+            us</a>
+        <a href="explored.html" class="text-2xl font-bold text-white hover:text-blue-500 focus:text-blue-500 transition"
+            onclick="toggleMenu()">Explore</a>
+        <button id="theme-toggle-mobile" 
+                class="p-1 rounded-full bg-white dark:bg-gray-900 text-black dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition shadow-lg">
+
+                <!-- Moon icon (show in LIGHT mode) -->
+                <svg id="moon-icon" class="w-5 h-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                </svg>
+
+                <!-- Sun icon (show in DARK mode) -->
+                <svg id="sun-icon" class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+        </button>
+    </div>
+
+
+<!-- Main content -->
+<!-- CAROUSEL -->
+<div id="default-carousel" class="relative w-full h-screen font-type" data-carousel="slide">
+  <!-- Carousel wrapper -->
+  <div class="relative h-full overflow-hidden">
+    <!-- Slide 1 -->
+    <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+      <img src="https://cdnb.artstation.com/p/assets/images/images/053/000/821/large/sonu-avtar-title.jpg?1661189157"
+           class="absolute w-full h-full object-cover inset-0" alt="Movie 1">
+      <div class="absolute inset-0 from-black via-transparent to-transparent opacity-80"></div>
+    </div>
+    <!-- Slide 2 -->
+    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+      <img src="https://i.pinimg.com/1200x/a9/86/b7/a986b74c0f5afa489f2b96646f6bdadf.jpg"
+           class="absolute w-full h-full object-cover inset-0" alt="Movie 2">
+      <div class="absolute inset-0 from-black via-transparent to-transparent opacity-80"></div>
+    </div>
+    <!-- Slide 3 -->
+    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+      <img src="https://i.pinimg.com/1200x/03/cf/74/03cf7419e7fa8c3983938d6760ae2652.jpg"
+           class="absolute w-full h-full object-cover inset-0" alt="Movie 3">
+      <div class="absolute inset-0 from-black via-transparent to-transparent opacity-80"></div>
+    </div>
+    <!-- Slide 4 -->
+    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+      <img src="https://i.pinimg.com/1200x/29/3a/52/293a528d8963f23abd99aaadf22beff3.jpg"
+           class="absolute w-full h-full object-cover inset-0" alt="Movie 3">
+      <div class="absolute inset-0 from-black via-transparent to-transparent opacity-80"></div>
+    </div>
+  </div>
+
+  <!-- Slider indicators -->
+  <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3">
+    <button type="button" class="w-3 h-3 rounded-full bg-white/50 hover:bg-white" data-carousel-slide-to="0"></button>
+    <button type="button" class="w-3 h-3 rounded-full bg-white/50 hover:bg-white" data-carousel-slide-to="1"></button>
+    <button type="button" class="w-3 h-3 rounded-full bg-white/50 hover:bg-white" data-carousel-slide-to="2"></button>
+  </div>
+
+  <!-- Slider controls -->
+  <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4" data-carousel-prev>
+    <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-black/30 hover:bg-black/50 backdrop-blur-sm">
+      <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </span>
+  </button>
+  <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4" data-carousel-next>
+    <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-black/30 hover:bg-black/50 backdrop-blur-sm">
+      <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </span>
+  </button>
+</div>
+
+
+<!-- Explore Content Section (title) -->
+            
+    <p class="text-size-h3 font-bold ml-7 mt-7 font-type text-gray-800 dark:text-[#EEF2FF]">
+      Explore movies here
+    </p>
+ 
+    <!-- Content Section -->
+    <div id="explored-container" class="bg-white dark:bg-[#101828] mt-3 text-gray-800 font-type dark:text-white backdrop-blur-md">
+    </div>
+
+    <template id="movie-card-template-explored">
+        <div class="group cursor-pointer movie-card" data-movie-id="">
+            <div class="relative aspect-2/3 rounded-xl overflow-hidden mb-3">
+                <img src="" class="w-full min-h-70 object-cover group-hover:scale-110 transition duration-300" alt="Movie Poster">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition"></div>
+            </div>
+            <div class="flex place-content-between">
+                <h3 class="font-bold text-gray-800 dark:text-[#EEF2FF] text-[20px] truncate movie-title"></h3>
+                <span class="text-yellow-400 flex items-center gap-1"><i class="fa-solid fa-star"></i> <span class="movie-rating"></span></span>
+            </div>
+            <div class="flex items-center text-sm text-gray-500 dark:text-[#acafb5] gap-2 mt-1">
+                <span class="movie-genre"></span>
+            </div>
+        </div>
+    </template>
+
+
+    <div class="flex items-center justify-between border-t border-white/10 px-4 py-3 sm:px-6 bg-white dark:bg-[#101828]  mt-10">
+
+            <div class="flex flex-col xs:flex-row sm:flex sm:flex-1 sm:items-center sm:justify-between text-gray-800 dark:text-white">
+                <div class="mb-3 xs:mb-0">
+                <p id="pagination-info" class="text-sm xs:text-xs text-gray-800 dark:text-white">
+                Showing
+                <span class="font-medium">1</span>
+                to
+                <span class="font-medium">10</span>
+                of
+                <span class="font-medium">97</span>
+                results
+            </p>
+            </div>
+
+            <!-- button for navigate to  -->
+            <div>
+                <nav aria-label="Pagination" class="isolate inline-flex -space-x-px rounded-md bg-background opacity-75 shadow-sm">
+                    <a href="#" class="pagination-prev relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 inset-ring inset-ring-gray-700 hover:bg-white/5 focus:z-20 focus:outline-offset-0">
+                        <span class="sr-only">Previous</span>
+                        <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5">
+                            <path d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" fill-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <!-- Current: "z-10 text-white focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-500 focus-visible:outline-indigo-500", Default: "inset-ring focus:outline-offset-0 text-gray-200 inset-ring-gray-700 hover:bg-white/5" -->
+                    <a href="#" aria-current="page" class="pagination-number relative z-10 inline-flex items-center bg-indigo-500 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500" data-page="1">1</a>
+                    <a href="#" class="pagination-number relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-200 inset-ring inset-ring-gray-700 hover:bg-white/5 focus:z-20 focus:outline-offset-0" data-page="2">2</a>
+                    <a href="#" class="pagination-number relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-200 inset-ring inset-ring-gray-700 hover:bg-white/5 focus:z-20 focus:outline-offset-0 md:inline-flex" data-page="3">3</a>
+                    <span class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-400 inset-ring inset-ring-gray-700 focus:outline-offset-0">...</span>
+                    <a href="#" class="pagination-number relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-200 inset-ring inset-ring-gray-700 hover:bg-white/5 focus:z-20 focus:outline-offset-0 md:inline-flex" data-page="8">8</a>
+                    <a href="#" class="pagination-number relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-200 inset-ring inset-ring-gray-700 hover:bg-white/5 focus:z-20 focus:outline-offset-0" data-page="9">9</a>
+                    <a href="#" class="pagination-number relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-200 inset-ring inset-ring-gray-700 hover:bg-white/5 focus:z-20 focus:outline-offset-0" data-page="10">10</a>
+                    
+                    <a href="#" class="pagination-next relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 inset-ring inset-ring-gray-700 hover:bg-white/5 focus:z-20 focus:outline-offset-0">
+                        <span class="sr-only">Next</span>
+                        <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5">
+                            <path d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
+                        </svg>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Full Screen Menu -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-dark/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center space-y-8 menu-closed md:hidden">
+        <!-- Close Button (Also handled by main toggle, but visual clarity) -->
+
+        <!-- Mobile Search -->
+        <div class="w-3/4 max-w-sm flex items-center bg-white/10 rounded-full px-4 py-3 border border-white/20">
+            <i class="fa-solid fa-search text-gray-400 mr-3"></i>
+            <input type="text" placeholder="Search..."
+                class="bg-transparent border-none outline-none text-base w-full text-white placeholder-gray-400">
+        </div>
+
+        <a href="../index.html" class="text-2xl font-bold text-white hover:text-primary transition" onclick="toggleMenu()">Home</a>
+        <a href="about.html" class="text-2xl font-bold text-gray-300 hover:text-primary transition" onclick="toggleMenu()">About
+            us</a>
+        <a href="explored.html" class="text-2xl font-bold text-gray-300 hover:text-primary transition"
+            onclick="toggleMenu()">Explore</a>
+
+    </div>
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 pt-12 md:pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12 justify-items-center">
+                <div class="space-y-4">
+                    <div class="flex items-center gap">
+                        <a href="../index.html" rel="noopener noreferrer">
+                            <img src="../images/CamFlix-Logo.png" alt="camflix Logo" class="h-16 w-auto object-contain">
+                        </a>
+                    </div>
+                    <div class="space-y-4 text-sm">
+                        <a href="mailto:support@camflix.com"
+                            class="block text-gray-400 hover:text-primary transition">support@camflix.com</a>
+                        <div class="flex gap-4">
+                            <a href="#"
+                                class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-primary transition"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="#"
+                                class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-primary transition"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a href="#"
+                                class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-primary transition"><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-10">
+                    <div class="flex items-center gap-2">
+                        <a href="https://www.cstad.edu.kh/" target="_blank" rel="noopener noreferrer">
+                            <img src="../Images/ISTAD-log.png" alt="ISTAD Logo" class="h-10 w-auto object-contain">
+                        </a>
+                    </div>
+                    <div class="space-y-4 text-sm">
+                        <a href="mailto:info.istad@gmail.com"
+                            class="block text-gray-400 hover:text-primary transition">info.istad@gmail.com</a>
+                        <div class="flex gap-4">
+                            <a href="https://www.facebook.com/istad.com" target="_blank"
+                                class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-primary transition"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="#"
+                                class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-primary transition"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a href="#"
+                                class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-primary transition"><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4 md:mb-6 text-white text-lg">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="../index.html" class="hover:text-primary transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition">About us</a></li>
+                        <li><a href="explored.html" class="hover:text-primary transition">Explore Movies</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4 md:mb-6 text-white text-lg">Support</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-primary transition">FAQs</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Support Centre</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500 text-xs">copyright 2025 CamFlix. All right reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for explore movie -->
+    <script>
+        
+      (function () {
+        const API_KEY = '4113f3ad734e747a5b463cde8c55de42';
+        const IMAGE_BASE = 'https://image.tmdb.org/t/p/w500';
+        let allExploredMovies = [];
+        let exploredExpanded = false;
+
+        document.addEventListener('DOMContentLoaded', () => {
+          const gridParent = document.querySelector('p + div');
+          if (!gridParent) return;
+
+          // Use the static <template id="movie-card-template-explored"> present in the HTML
+
+          // Create explored grid
+          const exploredGrid = document.createElement('div');
+          exploredGrid.id = 'explored-grid';
+          exploredGrid.className = 'grid grid-cols-2 md:grid-cols-4 gap-8 mt-5 px-4';
+          exploredGrid.innerHTML = '<div class="col-span-full text-center text-gray-400 py-10">Loading movies...</div>';
+
+          // Clear existing static cards and insert our grid
+          gridParent.innerHTML = '';
+          gridParent.appendChild(exploredGrid);
+
+          // Hook existing Load More / See All button if present
+          const loadMoreBtn = document.querySelector('div.flex.justify-center.mt-5 button');
+          if (loadMoreBtn) {
+            loadMoreBtn.id = 'explore-see-all-btn';
+            loadMoreBtn.textContent = 'see all';
+            loadMoreBtn.addEventListener('click', () => {
+              exploredExpanded = !exploredExpanded;
+              renderExploredMovies(exploredExpanded ? allExploredMovies : allExploredMovies.slice(0, 16));
+              loadMoreBtn.textContent = exploredExpanded ? 'see less' : 'see all';
+            });
+          }
+
+          loadExploredMovies();
+        });
+
+        async function loadExploredMovies() {
+          const url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=2`;
+          try {
+            const res = await fetch(url);
+            const json = await res.json();
+            allExploredMovies = json.results || [];
+            renderExploredMovies(allExploredMovies.slice(0, 16));
+          } catch (err) {
+            console.error('Failed to load explored movies', err);
+            const g = document.getElementById('explored-grid');
+            if (g) g.innerHTML = '<div class="col-span-full text-center text-red-500 py-10">Failed to load movies</div>';
+          }
+        }
+        
+            function renderExploredMovies(movies) {
+            const grid = document.getElementById('explored-grid');
+            grid.innerHTML = '';
+
+            movies.forEach(movie => {
+                const card = document.getElementById('movie-card-template-explored').content.cloneNode(true);
+                const cardElement = card.querySelector('.movie-card');
+                const img = card.querySelector('img');
+                const title = card.querySelector('.movie-title');
+                const genre = card.querySelector('.movie-genre');
+                const rating = card.querySelector('.movie-rating');
+
+                cardElement.dataset.movieId = movie.id;
+                img.src = movie.poster_path ? `${IMAGE_BASE}${movie.poster_path}` : 'https://placehold.co/500x750?text=No+Image';
+                img.alt = movie.title;
+                title.textContent = movie.title;
+                genre.textContent = movie.release_date ? `${movie.release_date}` : 'No date available';
+                rating.textContent = movie.vote_average?.toFixed(1) ?? 'N/A';
+
+                // Add click listener
+                cardElement.addEventListener('click', () => {
+                    window.location.href = `./detail.html?movieId=${movie.id}`;
+                });
+
+                grid.appendChild(card);
+            });
+        }
+
+      })();
+    </script>
+
+        <!-- Script for dark mode -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleButton = document.getElementById("theme-toggle");
+            const html = document.documentElement;
+
+        // Load saved theme
+        if (localStorage.getItem("theme") === "dark") {
+            html.classList.add("dark");
+        }
+
+        // Toggle
+        toggleButton.addEventListener("click", () => {
+            html.classList.toggle("dark");
+
+            // Save theme
+            localStorage.setItem("theme",
+                html.classList.contains("dark") ? "dark" : "light"
+                );
+            });
+        });
+    </script>
+
+    <!-- Script for dark mode on mobile menu -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const toggleButton = document.getElementById("theme-toggle-mobile");
+        const html = document.documentElement;
+
+    // Load saved theme
+    if (localStorage.getItem("theme") === "dark") {
+        html.classList.add("dark");
+    }
+
+    // Toggle
+    toggleButton.addEventListener("click", () => {
+        html.classList.toggle("dark");
+
+        // Save theme
+        localStorage.setItem("theme",
+            html.classList.contains("dark") ? "dark" : "light"
+            );
+        });
+    });
+    </script>
+
+    <!-- Scripts for mobile menu -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('menu-closed');
+                mobileMenu.classList.add('menu-open');
+                // Change icon to X
+                menuBtn.innerHTML = '<i class="fa-solid fa-xmark text-2xl"></i>';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            } else {
+                mobileMenu.classList.remove('menu-open');
+                mobileMenu.classList.add('menu-closed');
+                // Change icon back to bars
+                menuBtn.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>';
+                document.body.style.overflow = ''; // Enable scrolling
+            }
+        }
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Background navigation on scroll
+        // Scroll Event Listener
+        window.addEventListener('scroll', () => {
+            const mainNav = document.getElementById('mainNav');
+
+            if (window.scrollY > 50) {
+                mainNav.classList.remove('bg-gradient-to-b', 'from-black/90', 'to-transparent');
+                mainNav.classList.add('bg-black/40', 'backdrop-blur-md', 'border-b', 'border-white/10', 'shadow-lg');
+            } else {
+                // AT THE TOP: Reset to original
+                mainNav.classList.remove('bg-black/40', 'backdrop-blur-md', 'border-b', 'border-white/10', 'shadow-lg');
+                mainNav.classList.add('bg-gradient-to-b', 'from-black/90', 'to-transparent');
+            }
+        });
+    </script>
+
+
+<script src="/js/pagination.js"></script>
+
+</body>
+
+</html>
