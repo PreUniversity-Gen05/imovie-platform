@@ -1,4 +1,3 @@
-
 (function () {
   const API_KEY = '4113f3ad734e747a5b463cde8c55de42';
   const IMAGE_BASE = 'https://image.tmdb.org/t/p/w500';
@@ -132,21 +131,87 @@
       `;
     }
 
-    // Highlight correct page number
+    // Call the dynamic page number updater
+    updatePageNumbersDynamically();
+  }
+
+  // ------------------------------
+  // DYNAMIC PAGE NUMBER UPDATER
+  // ------------------------------
+  function updatePageNumbersDynamically() {
     const pageLinks = document.querySelectorAll('nav[aria-label="Pagination"] a.pagination-number');
-    pageLinks.forEach(link => {
-      const pageNum = parseInt(link.dataset.page);
-      if (pageNum === currentPage) {
-        link.classList.add('bg-indigo-500', 'text-white', 'z-10');
-        link.classList.remove('text-gray-200');
-        link.setAttribute('aria-current', 'page');
-      } else {
-        link.classList.remove('bg-indigo-500', 'text-white', 'z-10');
-        link.classList.add('text-gray-200');
-        link.removeAttribute('aria-current');
+    if (pageLinks.length === 0) return;
+    
+    // Determine which pages to show (show 5 pages total)
+    let startPage = Math.max(1, currentPage - 2);
+    let endPage = Math.min(totalPages, currentPage + 2);
+    
+    // Adjust if we're near the start or end
+    if (currentPage <= 3) {
+      startPage = 1;
+      endPage = Math.min(5, totalPages);
+    } else if (currentPage >= totalPages - 2) {
+      endPage = totalPages;
+      startPage = Math.max(1, totalPages - 4);
+    }
+    
+    // Update each visible link
+    let visibleIndex = 0;
+    for (let i = startPage; i <= endPage; i++) {
+      if (visibleIndex < pageLinks.length) {
+        const link = pageLinks[visibleIndex];
+        link.textContent = i;
+        link.dataset.page = i;
+        
+        // Show the link
+        link.style.display = 'inline-flex';
+        
+        // Update active state
+        if (i === currentPage) {
+          link.classList.add('bg-indigo-500', 'text-white', 'z-10');
+          link.classList.remove('text-gray-200');
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.classList.remove('bg-indigo-500', 'text-white', 'z-10');
+          link.classList.add('text-gray-200');
+          link.removeAttribute('aria-current');
+        }
+        
+        visibleIndex++;
       }
-    });
+    }
+    
+    // Hide any remaining links
+    for (let i = visibleIndex; i < pageLinks.length; i++) {
+      pageLinks[i].style.display = 'none';
+    }
+    
+    // Update ellipsis visibility
+    const ellipsis = document.querySelector('nav[aria-label="Pagination"] span.relative');
+    if (ellipsis) {
+      // Show ellipsis if there are hidden pages at the end
+      const shouldShowEllipsis = endPage < totalPages - 1;
+      ellipsis.style.display = shouldShowEllipsis ? 'inline-flex' : 'none';
+      
+      // Update ellipsis text if needed
+      if (shouldShowEllipsis && totalPages > 5) {
+        ellipsis.textContent = '...';
+      }
+    }
+    
+    // Update previous/next button states
+    const prevBtn = document.querySelector('nav[aria-label="Pagination"] a.pagination-prev');
+    const nextBtn = document.querySelector('nav[aria-label="Pagination"] a.pagination-next');
+    
+    if (prevBtn) {
+      prevBtn.style.opacity = currentPage === 1 ? '0.5' : '1';
+      prevBtn.style.cursor = currentPage === 1 ? 'not-allowed' : 'pointer';
+    }
+    
+    if (nextBtn) {
+      nextBtn.style.opacity = currentPage === totalPages ? '0.5' : '1';
+      nextBtn.style.cursor = currentPage === totalPages ? 'not-allowed' : 'pointer';
+    }
   }
 
 })();
-
